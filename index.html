@@ -97,6 +97,35 @@ h2 em{font-style:normal;color:var(--ink3);font-size:14px;font-weight:400;
 .hotel{background:#f0fdf4;color:#14532d}
 .hotel b,.eat b,.tip b{display:inline-block;margin-right:8px;color:var(--ink);font-size:12.5px;
   background:#fff;border-radius:5px;padding:1px 7px}
+.nearby{margin:0;padding:0 24px 18px;border-top:1px dashed var(--line);background:#fbfaf7}
+.nearby summary{cursor:pointer;padding:14px 0 8px;font-size:14px;font-weight:700;color:var(--ink2);
+  list-style:none}
+.nearby summary::-webkit-details-marker{display:none}
+.nearby summary::before{content:"▾ ";color:var(--c, var(--gold))}
+.nearby:not([open]) summary::before{content:"▸ "}
+.nb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding-bottom:8px}
+.nb-col{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.nb-col h5{margin:0 0 8px;font-size:13px;letter-spacing:.08em}
+.nb-pin h5{color:#b45309}
+.nb-food h5{color:#15803d}
+.nb-view h5{color:#1d4ed8}
+.nb-col ul{list-style:none;margin:0;padding:0}
+.nb-col li{padding:7px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.nb-col li:last-child{border:0}
+.nb-col b{display:block;color:var(--ink);font-size:14px}
+.nb-col span{color:var(--ink2);font-size:12.5px;line-height:1.5}
+.ni-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.ni-card{display:block;text-decoration:none;color:inherit;background:var(--card);
+  border:1px solid var(--line);border-left:4px solid var(--c);border-radius:12px;padding:14px 16px}
+.ni-card:hover{box-shadow:0 4px 14px rgba(0,0,0,.06);transform:translateY(-1px)}
+.ni-card em{font-style:normal;font-size:12px;color:var(--c);font-weight:800}
+.ni-card strong{display:block;margin-top:2px;font-size:17px}
+.ni-card > p{margin:2px 0 10px;font-size:13px;color:var(--ink3)}
+.ni-bits div{padding:5px 0;border-top:1px dashed var(--line);font-size:13px;color:var(--ink2)}
+.ni-bits b{display:inline-block;min-width:2.5em;margin-right:6px;color:var(--ink)}
+@media(max-width:900px){
+  .nb-grid{grid-template-columns:1fr}
+}
 table{width:100%;border-collapse:collapse;background:var(--card);
   border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:14.5px}
 th,td{padding:13px 15px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
@@ -152,6 +181,7 @@ footer{margin-top:56px;padding:26px 0 44px;border-top:1px solid var(--line);colo
 <nav><div class="wrap">
   <a href="#map">路线地图</a>
   <a href="#days">每日行程</a>
+  <a href="#nearby">附近可查</a>
   <a href="#hotel">住宿</a>
   <a href="#pack">物品清单</a>
   <a href="#notes">备注</a>
@@ -196,6 +226,7 @@ footer{margin-top:56px;padding:26px 0 44px;border-top:1px solid var(--line);colo
       <p class="tip"><b>提示</b>早上出发即可；元上都留足 1.5–2 小时，别拖到天黑再赶路。</p>
     </div>
   </div>
+  <details class="nearby" open><summary>附近可查 · 不改路线，路过有空再去</summary><div class="nb-grid"><div class="nb-col nb-pin"><h5>打卡</h5><ul><li><b>元上都宫城城墙</b><span>站城墙上看草原天际线，斜光最好拍</span></li><li><b>上都湖观景木栈</b><span>风小时倒影清晰，傍晚人少</span></li><li><b>桑根达莱小站</b><span>镇上火车站小品，路过可拍一张</span></li></ul></div><div class="nb-col nb-food"><h5>美食</h5><ul><li><b>手把肉 / 烤羊排</b><span>正蓝旗羊肉口碑稳，镇上蒙餐厅点这个不容易错</span></li><li><b>奶茶 + 奶皮子 / 奶豆腐</b><span>配烧饼当夜宵也很合适</span></li><li><b>血肠 / 羊杂汤</b><span>想吃点重口就点这个暖胃</span></li></ul></div><div class="nb-col nb-view"><h5>美景</h5><ul><li><b>上都湖日落</b><span>湖面开阔，云彩好的时候很出片</span></li><li><b>遗址外围草场</b><span>不用进核心区也能拍到辽阔感</span></li><li><b>浑善达克沙地边缘</b><span>顺路车览即可，别为了这个大绕路</span></li></ul></div></div></details>
 </article>
 <article class="day" id="d2" data-day="2" style="--c:#b45309">
   <header>
@@ -219,6 +250,7 @@ footer{margin-top:56px;padding:26px 0 44px;border-top:1px solid var(--line);colo
       <p class="tip"><b>提示</b>公路本身就是风景，留几个固定观景台就够，别每个路口都停。</p>
     </div>
   </div>
+  <details class="nearby" open><summary>附近可查 · 不改路线，路过有空再去</summary><div class="nb-grid"><div class="nb-col nb-pin"><h5>打卡</h5><ul><li><b>99 号公路观景台 / 里程碑</b><span>经典公路打卡，停安全港湾再下车</span></li><li><b>白桦林观景台</b><span>树影和公路同框，午后光线柔和</span></li><li><b>不远牧场入口</b><span>牧区生活感强，适合合影</span></li><li><b>蒙古汗城门楼</b><span>建筑感强，时间紧拍外景即可</span></li></ul></div><div class="nb-col nb-food"><h5>美食</h5><ul><li><b>西乌手把肉</b><span>本地招牌，晚上去旗里吃，比公路边干净稳妥</span></li><li><b>烤全羊 / 烤羊腿</b><span>人多可以拼一桌</span></li><li><b>莜面窝窝 / 奶制品</b><span>配羊肉汤很解腻</span></li></ul></div><div class="nb-col nb-view"><h5>美景</h5><ul><li><b>瞭望山远景</b><span>公路高点停车点常能看到缓丘草浪</span></li><li><b>傍晚金色草场</b><span>太阳西斜时整条公路都在发光</span></li><li><b>游牧点炊烟</b><span>傍晚偶遇蒙古包炊烟，别进牧户院子打扰</span></li></ul></div></div></details>
 </article>
 <article class="day" id="d3" data-day="3" style="--c:#a16207">
   <header>
@@ -242,6 +274,7 @@ footer{margin-top:56px;padding:26px 0 44px;border-top:1px solid var(--line);colo
       <p class="tip"><b>提示</b>尽量卡住九曲湾日落；人就睡在景点旁边，不用再跑霍林郭勒。</p>
     </div>
   </div>
+  <details class="nearby" open><summary>附近可查 · 不改路线，路过有空再去</summary><div class="nb-grid"><div class="nb-col nb-pin"><h5>打卡</h5><ul><li><b>九曲湾山顶观景台</b><span>导航成功家庭牧场，日落前后最热闹</span></li><li><b>乌拉盖湖亲水平台</b><span>环湖慢开，挑一个安全停车位拍倒影</span></li><li><b>可汗山观景台</b><span>有云海就冲早上去，没有也值得看看地形</span></li><li><b>蒙古包营地门口</b><span>住的地方本身就能拍生活感照片</span></li></ul></div><div class="nb-col nb-food"><h5>美食</h5><ul><li><b>烤全羊 / 手把肉</b><span>乌拉盖羊肉是这条线高光，今晚值得吃好</span></li><li><b>奶茶 + 炒米</b><span>配烤肉解腻</span></li><li><b>野外营地简餐</b><span>营地若提供烧烤，提前问清有没有现宰/预约</span></li></ul></div><div class="nb-col nb-view"><h5>美景</h5><ul><li><b>九曲湾日落</b><span>曲水反光，这天最值得等的光</span></li><li><b>乌拉盖湖晨雾</b><span>住在附近的好处：第二天若早起可看一眼</span></li><li><b>可汗山云海</b><span>运气好时像站在云上，早上去概率更高</span></li></ul></div></div></details>
 </article>
 <article class="day" id="d4" data-day="4" style="--c:#4d7c0f">
   <header>
@@ -265,6 +298,7 @@ footer{margin-top:56px;padding:26px 0 44px;border-top:1px solid var(--line);colo
       <p class="tip"><b>提示</b>8 月阿尔山夜里凉，薄外套备一件。明天全天进公园，早点睡。</p>
     </div>
   </div>
+  <details class="nearby" open><summary>附近可查 · 不改路线，路过有空再去</summary><div class="nb-grid"><div class="nb-col nb-pin"><h5>打卡</h5><ul><li><b>阿尔山火车站</b><span>傍晚灯亮后最出片，站台注意避让火车</span></li><li><b>哈拉哈河沿河步道</b><span>晚饭后散步，河灯和木刻楞建筑同框</span></li><li><b>五里泉</b><span>市区近、好找，打卡矿泉水点</span></li><li><b>不冻河路段</b><span>出城方向常见，清晨雾气更好看，今晚可先踩点</span></li></ul></div><div class="nb-col nb-food"><h5>美食</h5><ul><li><b>榛蘑小鸡</b><span>阿尔山必点山货</span></li><li><b>冷水鱼 / 柳蒿芽 / 蕨菜</b><span>点一两个时令山野菜就够</span></li><li><b>酸菜白肉 / 炖菜</b><span>夜里凉，吃个热乎的</span></li></ul></div><div class="nb-col nb-view"><h5>美景</h5><ul><li><b>火车站夜景</b><span>小站灯火，阿尔山招牌画面</span></li><li><b>哈拉哈河夜色</b><span>河面反光，适合慢走</span></li><li><b>市区木刻楞街景</b><span>老建筑集中路段随便拍</span></li></ul></div></div></details>
 </article>
 <article class="day" id="d5" data-day="5" style="--c:#15803d">
   <header>
@@ -288,6 +322,7 @@ footer{margin-top:56px;padding:26px 0 44px;border-top:1px solid var(--line);colo
       <p class="tip"><b>提示</b>门票+园内交通提前预约。往返各约 63km，按园内推荐顺序走，别来回跑。</p>
     </div>
   </div>
+  <details class="nearby" open><summary>附近可查 · 不改路线，路过有空再去</summary><div class="nb-grid"><div class="nb-col nb-pin"><h5>打卡</h5><ul><li><b>驼峰岭天池观景台</b><span>登顶台阶约 30 分钟，全园第一打卡</span></li><li><b>石塘林熔岩台地</b><span>脚下全是火山岩，反差极大</span></li><li><b>三潭峡栈道</b><span>峡谷+流水，好走也好拍</span></li><li><b>杜鹃湖湖心视角</b><span>栈道平缓，适合不想爬坡的人</span></li></ul></div><div class="nb-col nb-food"><h5>美食</h5><ul><li><b>自备干粮</b><span>园内贵且选择少，早上让酒店打包</span></li><li><b>天池镇简餐</b><span>中午可在镇上快速解决，别指望大菜</span></li><li><b>回市区再吃山货</b><span>晚上回那伦附近补一顿榛蘑冷水鱼</span></li></ul></div><div class="nb-col nb-view"><h5>美景</h5><ul><li><b>天池静水面</b><span>风小时像镜子</span></li><li><b>石塘林夕阳</b><span>熔岩纹理在斜光下很有层次</span></li><li><b>落叶松林光斑</b><span>车窗和栈道两侧都是</span></li><li><b>玫瑰峰（可选）</b><span>在阿尔山附近，时间富余才考虑，不进今天主线</span></li></ul></div></div></details>
 </article>
 <article class="day" id="d6" data-day="6" style="--c:#0f766e">
   <header>
@@ -311,6 +346,7 @@ footer{margin-top:56px;padding:26px 0 44px;border-top:1px solid var(--line);colo
       <p class="tip"><b>提示</b>今天里程偏长，白狼峰适可而止，别太晚下山。</p>
     </div>
   </div>
+  <details class="nearby" open><summary>附近可查 · 不改路线，路过有空再去</summary><div class="nb-grid"><div class="nb-col nb-pin"><h5>打卡</h5><ul><li><b>白狼峰观景台</b><span>出山顺路，林海主脊感强</span></li><li><b>白狼镇街景 / 鹿园（若开放）</b><span>顺路看看即可，不开放就跳过</span></li><li><b>炮台山公园</b><span>住汉庭附近，晚饭后可散步消食</span></li></ul></div><div class="nb-col nb-food"><h5>美食</h5><ul><li><b>扎鲁特蒙餐 / 炖菜</b><span>过渡夜吃稳，别太折腾肠胃</span></li><li><b>羊杂汤 / 牛肉面</b><span>到店晚时的快速选择</span></li><li><b>烤串夜宵</b><span>饿了再补，明天还有玉龙沙湖</span></li></ul></div><div class="nb-col nb-view"><h5>美景</h5><ul><li><b>白狼峰林海</b><span>大兴安岭到草原的过渡带</span></li><li><b>出山后开阔草场</b><span>车窗风景就够看，安全港湾再停</span></li><li><b>炮台山夜景</b><span>城区小高地，灯光一般但方便</span></li></ul></div></div></details>
 </article>
 <article class="day" id="d7" data-day="7" style="--c:#1d4ed8">
   <header>
@@ -334,6 +370,7 @@ footer{margin-top:56px;padding:26px 0 44px;border-top:1px solid var(--line);colo
       <p class="tip"><b>提示</b>车程比上一版轻松很多，沙湖和响水可以都看，不用赶尽杀绝。</p>
     </div>
   </div>
+  <details class="nearby" open><summary>附近可查 · 不改路线，路过有空再去</summary><div class="nb-grid"><div class="nb-col nb-pin"><h5>打卡</h5><ul><li><b>玉龙沙湖骑骆驼</b><span>沙漠感最强的一张，注意防晒</span></li><li><b>沙湖同框点</b><span>沙丘+湖面，景区指示牌附近常有机位</span></li><li><b>响水荷花池</b><span>8 月花期值得专程看一眼</span></li></ul></div><div class="nb-col nb-food"><h5>美食</h5><ul><li><b>旗里家常菜 / 蒙餐</b><span>沙湖内餐饮一般，回翁牛特旗再吃</span></li><li><b>烤羊排 / 手把肉</b><span>收尾再吃一顿北疆味道</span></li><li><b>凉菜 + 啤酒</b><span>沙湖晒完很解乏（喝酒不开车）</span></li></ul></div><div class="nb-col nb-view"><h5>美景</h5><ul><li><b>玉龙沙湖日落</b><span>沙子和湖面一起被染红</span></li><li><b>荷花池近景</b><span>风小时花面平整好拍</span></li><li><b>沙地与草地交界</b><span>车进出景区时留意车窗构图</span></li></ul></div></div></details>
 </article>
 <article class="day" id="d8" data-day="8" style="--c:#4338ca">
   <header>
@@ -357,7 +394,15 @@ footer{margin-top:56px;padding:26px 0 44px;border-top:1px solid var(--line);colo
       <p class="tip"><b>提示</b>纯赶路日，早出发；两人轮驾会轻松很多。</p>
     </div>
   </div>
+  <details class="nearby" open><summary>附近可查 · 不改路线，路过有空再去</summary><div class="nb-grid"><div class="nb-col nb-pin"><h5>打卡</h5><ul><li><b>服务区合影收尾</b><span>别为了新景点耽误进城时间</span></li></ul></div><div class="nb-col nb-food"><h5>美食</h5><ul><li><b>服务区简餐</b><span>吃饱就走</span></li><li><b>丰宁农家菜（可选）</b><span>若需要坐下来吃一顿，选高速近的，别进县城绕</span></li></ul></div><div class="nb-col nb-view"><h5>美景</h5><ul><li><b>坝上下坡车窗</b><span>从高原往下走，山形变化明显</span></li><li><b>京郊最后一段</b><span>进城前看一眼 greenery，然后专心开车</span></li></ul></div></div></details>
 </article>
+</div></section>
+
+<section id="nearby"><div class="wrap">
+  <h2>附近可查 <em>Nearby</em></h2>
+  <p class="lead">按住宿地/当天位置汇总的打卡、美食、美景。不改主路线，到了附近有空再看；
+     点卡片会跳到对应那天的详细条目。</p>
+  <div class="ni-grid"><a class="ni-card" href="#d1" style="--c:#c2410c"><em>D1 · 8.9</em><strong>桑根达莱镇</strong><p>北京 → 正蓝旗</p><div class="ni-bits"><div><b>打卡</b><span>元上都宫城城墙、上都湖观景木栈、桑根达莱小站</span></div><div><b>美食</b><span>手把肉 / 烤羊排、奶茶 + 奶皮子 / 奶豆腐、血肠 / 羊杂汤</span></div><div><b>美景</b><span>上都湖日落、遗址外围草场、浑善达克沙地边缘</span></div></div></a><a class="ni-card" href="#d2" style="--c:#b45309"><em>D2 · 8.10</em><strong>西乌旗</strong><p>正蓝旗 → 西乌珠穆沁旗</p><div class="ni-bits"><div><b>打卡</b><span>99 号公路观景台 / 里程碑、白桦林观景台、不远牧场入口、蒙古汗城门楼</span></div><div><b>美食</b><span>西乌手把肉、烤全羊 / 烤羊腿、莜面窝窝 / 奶制品</span></div><div><b>美景</b><span>瞭望山远景、傍晚金色草场、游牧点炊烟</span></div></div></a><a class="ni-card" href="#d3" style="--c:#a16207"><em>D3 · 8.11</em><strong>乌拉盖九曲湾附近</strong><p>西乌旗 → 乌拉盖草原</p><div class="ni-bits"><div><b>打卡</b><span>九曲湾山顶观景台、乌拉盖湖亲水平台、可汗山观景台、蒙古包营地门口</span></div><div><b>美食</b><span>烤全羊 / 手把肉、奶茶 + 炒米、野外营地简餐</span></div><div><b>美景</b><span>九曲湾日落、乌拉盖湖晨雾、可汗山云海</span></div></div></a><a class="ni-card" href="#d4" style="--c:#4d7c0f"><em>D4 · 8.12</em><strong>阿尔山</strong><p>乌拉盖草原 → 阿尔山</p><div class="ni-bits"><div><b>打卡</b><span>阿尔山火车站、哈拉哈河沿河步道、五里泉、不冻河路段</span></div><div><b>美食</b><span>榛蘑小鸡、冷水鱼 / 柳蒿芽 / 蕨菜、酸菜白肉 / 炖菜</span></div><div><b>美景</b><span>火车站夜景、哈拉哈河夜色、市区木刻楞街景</span></div></div></a><a class="ni-card" href="#d5" style="--c:#15803d"><em>D5 · 8.13</em><strong>阿尔山</strong><p>阿尔山国家森林公园（全天）</p><div class="ni-bits"><div><b>打卡</b><span>驼峰岭天池观景台、石塘林熔岩台地、三潭峡栈道、杜鹃湖湖心视角</span></div><div><b>美食</b><span>自备干粮、天池镇简餐、回市区再吃山货</span></div><div><b>美景</b><span>天池静水面、石塘林夕阳、落叶松林光斑、玫瑰峰（可选）</span></div></div></a><a class="ni-card" href="#d6" style="--c:#0f766e"><em>D6 · 8.14</em><strong>扎鲁特</strong><p>阿尔山 → 扎鲁特</p><div class="ni-bits"><div><b>打卡</b><span>白狼峰观景台、白狼镇街景 / 鹿园（若开放）、炮台山公园</span></div><div><b>美食</b><span>扎鲁特蒙餐 / 炖菜、羊杂汤 / 牛肉面、烤串夜宵</span></div><div><b>美景</b><span>白狼峰林海、出山后开阔草场、炮台山夜景</span></div></div></a><a class="ni-card" href="#d7" style="--c:#1d4ed8"><em>D7 · 8.15</em><strong>翁牛特旗</strong><p>扎鲁特 → 翁牛特旗</p><div class="ni-bits"><div><b>打卡</b><span>玉龙沙湖骑骆驼、沙湖同框点、响水荷花池</span></div><div><b>美食</b><span>旗里家常菜 / 蒙餐、烤羊排 / 手把肉、凉菜 + 啤酒</span></div><div><b>美景</b><span>玉龙沙湖日落、荷花池近景、沙地与草地交界</span></div></div></a><a class="ni-card" href="#d8" style="--c:#4338ca"><em>D8 · 8.16</em><strong>回京路上</strong><p>翁牛特旗 → 北京</p><div class="ni-bits"><div><b>打卡</b><span>服务区合影收尾</span></div><div><b>美食</b><span>服务区简餐、丰宁农家菜（可选）</span></div><div><b>美景</b><span>坝上下坡车窗、京郊最后一段</span></div></div></a></div>
 </div></section>
 
 <section id="hotel"><div class="wrap">
@@ -385,7 +430,7 @@ footer{margin-top:56px;padding:26px 0 44px;border-top:1px solid var(--line);colo
 <section id="notes"><div class="wrap">
   <h2>备注 <em>Notes</em></h2>
   <div class="notes">
-    <div class="note"><h4>终稿说明</h4><p>本页按《阿尔山8天自驾行程表(4)》更新：里程、酒店、取消规则、景点均以终稿为准。原表 D2 日期写作 8.1，按上下文改为 8.10。</p></div><div class="note"><h4>相对上一版的关键变化</h4><p>D3 改为住乌拉盖九曲湾附近（不再住霍林郭勒）；D4 从乌拉盖直达阿尔山；可汗山改到 D3；D6 改为白狼峰；阿尔山酒店改为那伦酒店。</p></div><div class="note"><h4>住宿标准</h4><p>按终稿已订酒店执行；快捷干净即可，蒙古包那晚是体验项。</p></div><div class="note"><h4>订房注意</h4><p>看清取消截止时间：禧华轩 9日18点前、西乌汉庭 9日23点前、扎鲁特汉庭 13日23点前；蒙古包与北方牧歌走微信。</p></div><div class="note"><h4>门票预约</h4><p>阿尔山国家森林公园门票+园内车提前预约；元上都、玉龙沙湖旺季建议前一天订。</p></div><div class="note"><h4>九曲湾</h4><p>「成功家庭牧场 100 元自驾山顶」以现场开放和路况为准。</p></div>
+    <div class="note"><h4>终稿说明</h4><p>本页按《阿尔山8天自驾行程表(4)》更新：里程、酒店、取消规则、景点均以终稿为准。原表 D2 日期写作 8.1，按上下文改为 8.10。</p></div><div class="note"><h4>相对上一版的关键变化</h4><p>D3 改为住乌拉盖九曲湾附近（不再住霍林郭勒）；D4 从乌拉盖直达阿尔山；可汗山改到 D3；D6 改为白狼峰；阿尔山酒店改为那伦酒店。</p></div><div class="note"><h4>住宿标准</h4><p>按终稿已订酒店执行；快捷干净即可，蒙古包那晚是体验项。</p></div><div class="note"><h4>订房注意</h4><p>看清取消截止时间：禧华轩 9日18点前、西乌汉庭 9日23点前、扎鲁特汉庭 13日23点前；蒙古包与北方牧歌走微信。</p></div><div class="note"><h4>门票预约</h4><p>阿尔山国家森林公园门票+园内车提前预约；元上都、玉龙沙湖旺季建议前一天订。</p></div><div class="note"><h4>九曲湾</h4><p>「成功家庭牧场 100 元自驾山顶」以现场开放和路况为准。</p></div><div class="note"><h4>附近可查</h4><p>每天行程底部和「附近可查」专区有打卡/美食/美景，只作路过参考，不增加必玩项，也不改主路线。</p></div>
   </div>
 </div></section>
 
