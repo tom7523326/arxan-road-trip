@@ -110,6 +110,22 @@ td b{color:var(--green)}
 .note h4::before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;
   background:var(--gold);margin-right:9px;vertical-align:middle}
 .note p{margin:0;font-size:14px;color:var(--ink2)}
+.pack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.pack{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.pack h4{margin:0 0 10px;font-size:15.5px}
+.pack h4 span{float:right;font-size:12px;font-weight:400;color:var(--ink3)}
+.pack ul{list-style:none;margin:0;padding:0}
+.pack li{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);
+  font-size:14px;color:var(--ink2);cursor:pointer;user-select:none}
+.pack li:last-child{border-bottom:0}
+.pack li label{display:flex;align-items:flex-start;gap:10px;cursor:pointer;width:100%}
+.pack li input{margin-top:4px;accent-color:var(--green);flex:none}
+.pack li.done span{text-decoration:line-through;opacity:.45}
+.pack-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:0 0 18px;
+  font-size:14px;color:var(--ink2)}
+.pack-bar button{font:inherit;font-size:13px;padding:6px 12px;border-radius:8px;border:1px solid var(--line);
+  background:#fff;cursor:pointer;color:var(--ink2)}
+.pack-bar button:hover{border-color:var(--green);color:var(--green)}
 footer{margin-top:56px;padding:26px 0 44px;border-top:1px solid var(--line);color:var(--ink3);font-size:13px}
 @media(max-width:900px){
   .hero h1{font-size:28px}
@@ -137,6 +153,7 @@ footer{margin-top:56px;padding:26px 0 44px;border-top:1px solid var(--line);colo
   <a href="#map">路线地图</a>
   <a href="#days">每日行程</a>
   <a href="#hotel">住宿</a>
+  <a href="#pack">物品清单</a>
   <a href="#notes">备注</a>
 </div></nav>
 
@@ -353,6 +370,18 @@ footer{margin-top:56px;padding:26px 0 44px;border-top:1px solid var(--line);colo
   <p class="hint">那伦酒店终稿价格栏为 0，以你们实际订单为准；阿尔山务必确认连住 8.12–8.13。</p>
 </div></section>
 
+<section id="pack"><div class="wrap">
+  <h2>物品清单 <em>Packing</em></h2>
+  <p class="lead">按草原 + 阿尔山森林公园 + 玉龙沙湖 + 一晚蒙古包准备。勾选会记在本机浏览器里，刷新不丢。</p>
+  <div class="pack-bar">
+    <span id="pack-progress">已勾选 0 / 0</span>
+    <button type="button" id="pack-reset">清空勾选</button>
+  </div>
+  <div class="pack-grid" id="pack-list">
+    <div class="pack" data-cat="0"><h4>证件与钱<span class="cat-count"></span></h4><ul><li><label><input type="checkbox" data-id="p0-0"><span>全员身份证原件</span></label></li><li><label><input type="checkbox" data-id="p0-1"><span>驾驶证、行驶证</span></label></li><li><label><input type="checkbox" data-id="p0-2"><span>酒店 / 蒙古包订单与取消规则截图</span></label></li><li><label><input type="checkbox" data-id="p0-3"><span>阿尔山森林公园预约码（出发前一天再确认）</span></label></li><li><label><input type="checkbox" data-id="p0-4"><span>少量现金（牧场、山顶观景有时只收现金）</span></label></li><li><label><input type="checkbox" data-id="p0-5"><span>银行卡 / 手机支付</span></label></li></ul></div><div class="pack" data-cat="1"><h4>衣服<span class="cat-count"></span></h4><ul><li><label><input type="checkbox" data-id="p1-0"><span>短袖 3–4 件</span></label></li><li><label><input type="checkbox" data-id="p1-1"><span>长袖或薄外套 1–2 件（阿尔山、乌拉盖夜里凉）</span></label></li><li><label><input type="checkbox" data-id="p1-2"><span>长裤 2 条（防蚊、防晒、防沙）</span></label></li><li><label><input type="checkbox" data-id="p1-3"><span>抓绒或薄羽绒服 1 件</span></label></li><li><label><input type="checkbox" data-id="p1-4"><span>冲锋衣 / 防风外套 1 件（草原风大）</span></label></li><li><label><input type="checkbox" data-id="p1-5"><span>运动鞋（公园栈道）+ 拖鞋</span></label></li><li><label><input type="checkbox" data-id="p1-6"><span>帽、墨镜、防晒衣</span></label></li><li><label><input type="checkbox" data-id="p1-7"><span>蒙古包加备：保暖袜、备用长裤</span></label></li></ul></div><div class="pack" data-cat="2"><h4>防晒防虫<span class="cat-count"></span></h4><ul><li><label><input type="checkbox" data-id="p2-0"><span>防晒霜、唇膏</span></label></li><li><label><input type="checkbox" data-id="p2-1"><span>驱蚊液 / 花露水（湖边、草原必带）</span></label></li><li><label><input type="checkbox" data-id="p2-2"><span>清凉油或止痒膏</span></label></li><li><label><input type="checkbox" data-id="p2-3"><span>面巾 / 冰袖（沙湖、公路暴晒）</span></label></li></ul></div><div class="pack" data-cat="3"><h4>洗护与药<span class="cat-count"></span></h4><ul><li><label><input type="checkbox" data-id="p3-0"><span>洗漱套装、毛巾、纸巾、湿巾</span></label></li><li><label><input type="checkbox" data-id="p3-1"><span>感冒 / 肠胃 / 止痛 / 创可贴 / 晕车药</span></label></li><li><label><input type="checkbox" data-id="p3-2"><span>防暑药（可选）</span></label></li><li><label><input type="checkbox" data-id="p3-3"><span>眼镜或隐形护理液（风沙大）</span></label></li></ul></div><div class="pack" data-cat="4"><h4>数码<span class="cat-count"></span></h4><ul><li><label><input type="checkbox" data-id="p4-0"><span>手机、充电宝（建议 2 块）、充电线</span></label></li><li><label><input type="checkbox" data-id="p4-1"><span>车载充电器 / 插排</span></label></li><li><label><input type="checkbox" data-id="p4-2"><span>相机或航拍（可选）+ 备用电池、存储卡</span></label></li><li><label><input type="checkbox" data-id="p4-3"><span>离线地图下载（草原信号不稳）</span></label></li></ul></div><div class="pack" data-cat="5"><h4>车上与应急<span class="cat-count"></span></h4><ul><li><label><input type="checkbox" data-id="p5-0"><span>驾照行驶证复印件（手套箱）</span></label></li><li><label><input type="checkbox" data-id="p5-1"><span>拖车绳、三角架、反光背心</span></label></li><li><label><input type="checkbox" data-id="p5-2"><span>补胎液 / 充气泵、胎压检测</span></label></li><li><label><input type="checkbox" data-id="p5-3"><span>雨伞或一次性雨衣</span></label></li><li><label><input type="checkbox" data-id="p5-4"><span>垃圾袋、车载收纳袋</span></label></li><li><label><input type="checkbox" data-id="p5-5"><span>若开电车：应急充电枪、转接头（蒙古包可能只有民用电）</span></label></li></ul></div><div class="pack" data-cat="6"><h4>吃喝<span class="cat-count"></span></h4><ul><li><label><input type="checkbox" data-id="p6-0"><span>水、电解质饮料</span></label></li><li><label><input type="checkbox" data-id="p6-1"><span>面包 / 饼干 / 坚果 / 牛肉干</span></label></li><li><label><input type="checkbox" data-id="p6-2"><span>D5 进公园：酒店备干粮（园内贵且少）</span></label></li><li><label><input type="checkbox" data-id="p6-3"><span>保温杯</span></label></li></ul></div><div class="pack" data-cat="7"><h4>场景加码<span class="cat-count"></span></h4><ul><li><label><input type="checkbox" data-id="p7-0"><span>草原 / 九曲湾：防风 + 防蚊 + 保暖；眼罩耳塞（多人包）</span></label></li><li><label><input type="checkbox" data-id="p7-1"><span>森林公园：运动鞋、薄外套、干粮、水、雨具</span></label></li><li><label><input type="checkbox" data-id="p7-2"><span>玉龙沙湖：墨镜、口罩或围巾防沙、备用袜子、骑骆驼穿长裤</span></label></li></ul></div><div class="pack" data-cat="8"><h4>出发前一天再确认<span class="cat-count"></span></h4><ul><li><label><input type="checkbox" data-id="p8-0"><span>森林公园门票 / 园内车预约</span></label></li><li><label><input type="checkbox" data-id="p8-1"><span>各晚酒店订单 + 取消截止时间</span></label></li><li><label><input type="checkbox" data-id="p8-2"><span>蒙古包、北方牧歌微信联系人还在</span></label></li><li><label><input type="checkbox" data-id="p8-3"><span>车况：胎压、雨刷、玻璃水、备胎</span></label></li><li><label><input type="checkbox" data-id="p8-4"><span>全员身份证入包</span></label></li><li><label><input type="checkbox" data-id="p8-5"><span>离线地图、导航路线收藏</span></label></li></ul></div>
+  </div>
+</div></section>
+
 <section id="notes"><div class="wrap">
   <h2>备注 <em>Notes</em></h2>
   <div class="notes">
@@ -400,6 +429,45 @@ footer{margin-top:56px;padding:26px 0 44px;border-top:1px solid var(--line);colo
       if(t) t.scrollIntoView({behavior:'smooth'});
     });
   });
+
+  // 物品清单勾选（本机记住）
+  var KEY = 'arxan-pack-v1';
+  var boxes = [].slice.call(document.querySelectorAll('#pack-list input[type=checkbox]'));
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) {}
+  function refreshPack(){
+    var done = 0;
+    boxes.forEach(function(b){
+      var li = b.closest('li');
+      if(li) li.classList.toggle('done', b.checked);
+      if(b.checked) done++;
+    });
+    var el = document.getElementById('pack-progress');
+    if(el) el.textContent = '已勾选 ' + done + ' / ' + boxes.length;
+    [].forEach.call(document.querySelectorAll('.pack'), function(card){
+      var inputs = card.querySelectorAll('input');
+      var n = 0;
+      [].forEach.call(inputs, function(x){ if(x.checked) n++; });
+      var s = card.querySelector('.cat-count');
+      if(s) s.textContent = n + '/' + inputs.length;
+    });
+  }
+  boxes.forEach(function(b){
+    if(saved[b.dataset.id]) b.checked = true;
+    b.addEventListener('change', function(){
+      saved[b.dataset.id] = b.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+      refreshPack();
+    });
+  });
+  var reset = document.getElementById('pack-reset');
+  if(reset) reset.addEventListener('click', function(){
+    saved = {};
+    boxes.forEach(function(b){ b.checked = false; });
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    refreshPack();
+  });
+  refreshPack();
 })();
 </script>
 </body>
