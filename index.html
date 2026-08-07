@@ -3,93 +3,79 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>北京 → 阿尔山 8 日电车自驾方案</title>
+<title>北京 → 阿尔山 8 日自驾（朋友线路）</title>
 <style>
 :root{
   --ink:#1c1917; --ink2:#57534e; --ink3:#8b8378;
-  --paper:#faf8f4; --card:#fff; --line:#e7e2d9;
-  --green:#15803d; --gold:#b45309;
+  --paper:#faf8f4; --card:#fff; --line:#e7e2d9; --green:#15803d; --gold:#b45309;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);
   font:16px/1.75 "PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
   -webkit-font-smoothing:antialiased}
 .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
-a{color:inherit}
-
-/* hero */
-.hero{background:linear-gradient(150deg,#14532d 0%,#1f5f3a 42%,#3f6212 100%);
+.hero{background:linear-gradient(150deg,#1e3a5f 0%,#1f4d3a 45%,#3f6212 100%);
   color:#f5f5f0;padding:58px 0 46px;position:relative;overflow:hidden}
 .hero::after{content:"";position:absolute;inset:0;
-  background:radial-gradient(900px 340px at 88% -12%,rgba(250,204,21,.22),transparent 70%)}
+  background:radial-gradient(900px 340px at 88% -12%,rgba(250,204,21,.18),transparent 70%)}
 .hero .wrap{position:relative;z-index:1}
-.kicker{letter-spacing:.32em;font-size:12px;opacity:.72;margin:0 0 14px}
-.hero h1{margin:0;font-size:44px;line-height:1.18;font-weight:800;letter-spacing:-.5px}
-.hero h1 small{display:block;font-size:17px;font-weight:400;opacity:.8;margin-top:12px;letter-spacing:0}
+.kicker{letter-spacing:.28em;font-size:12px;opacity:.72;margin:0 0 14px}
+.hero h1{margin:0;font-size:40px;line-height:1.18;font-weight:800;letter-spacing:-.5px}
+.hero h1 small{display:block;font-size:16px;font-weight:400;opacity:.85;margin-top:12px;letter-spacing:0}
 .stats{display:flex;flex-wrap:wrap;gap:34px;margin-top:32px;padding-top:26px;
   border-top:1px solid rgba(255,255,255,.18)}
-.stats div b{display:block;font-size:30px;font-weight:800;line-height:1.1}
+.stats div b{display:block;font-size:28px;font-weight:800;line-height:1.1}
 .stats div span{font-size:12.5px;opacity:.72;letter-spacing:.06em}
-
-/* nav */
 nav{position:sticky;top:0;z-index:20;background:rgba(250,248,244,.93);
   backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;gap:26px;overflow-x:auto;padding-top:13px;padding-bottom:13px}
 nav a{text-decoration:none;font-size:14.5px;color:var(--ink2);white-space:nowrap;
   padding-bottom:2px;border-bottom:2px solid transparent}
 nav a:hover{color:var(--green);border-color:var(--green)}
-
 section{padding:56px 0 8px}
-h2{font-size:27px;margin:0 0 6px;letter-spacing:-.3px}
+h2{font-size:27px;margin:0 0 6px}
 h2 em{font-style:normal;color:var(--ink3);font-size:14px;font-weight:400;
-  letter-spacing:.16em;margin-left:12px;text-transform:uppercase}
-.lead{color:var(--ink2);margin:0 0 26px;max-width:70ch}
-
-/* 地图 */
-.maprow{display:grid;grid-template-columns:1fr 320px;gap:26px;align-items:start}
-.mapbox{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;
-  box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  letter-spacing:.16em;margin-left:12px}
+.lead{color:var(--ink2);margin:0 0 26px;max-width:72ch}
+.maprow{display:grid;grid-template-columns:1fr 340px;gap:26px;align-items:start}
+.mapbox{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px}
 #routemap{width:100%;height:auto;display:block}
 #routemap .grid{stroke:#eae5db;stroke-width:1}
 #routemap .gridlab{fill:#b9b2a6;font-size:10.5px}
 #routemap .region{fill:#c9c1b3;font-size:13px;letter-spacing:.22em;font-weight:600}
 #routemap .halo{fill:none;stroke:#fff;stroke-width:8.5;stroke-linecap:round;stroke-linejoin:round}
-#routemap .leg{fill:none;stroke-width:4.2;stroke-linecap:round;stroke-linejoin:round;
-  cursor:pointer;transition:stroke-width .18s,opacity .18s}
+#routemap .leg{fill:none;stroke-width:4.2;stroke-linecap:round;stroke-linejoin:round;cursor:pointer;
+  transition:stroke-width .18s,opacity .18s}
 #routemap .dot{fill:#fff;stroke:#44403c;stroke-width:2}
-#routemap .dot.major{stroke:#14532d;stroke-width:3}
+#routemap .dot.major{stroke:#1e3a5f;stroke-width:3}
 #routemap .city{fill:#44403c;font-size:12.5px;font-weight:600}
-#routemap .city.major{fill:#14532d;font-size:14.5px;font-weight:800}
+#routemap .city.major{fill:#1e3a5f;font-size:14px;font-weight:800}
 #routemap .badge text{fill:#fff;font-size:12px;font-weight:800}
 #routemap .dirlab{fill:#a8a29e;font-size:12px}
 #routemap.focus .leg{opacity:.16}
 #routemap.focus .badge{opacity:.2}
 #routemap.focus .leg.on{opacity:1;stroke-width:6}
 #routemap.focus .badge.on{opacity:1}
-
 .chips{display:flex;flex-direction:column;gap:8px}
 .chip{display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:10px;
   background:var(--card);border:1px solid var(--line);border-left:4px solid var(--c);
   border-radius:10px;padding:10px 13px;cursor:pointer;text-align:left;
-  font:inherit;font-size:14px;color:var(--ink);transition:.15s}
+  font:inherit;font-size:13.5px;color:var(--ink)}
 .chip:hover,.chip.on{background:#fff;box-shadow:0 3px 12px rgba(0,0,0,.07);transform:translateX(2px)}
 .chip b{color:var(--c);font-size:13px;font-weight:800}
 .chip em{font-style:normal;color:var(--ink3);font-size:12.5px}
-
-/* 每日卡片 */
-.day{background:var(--card);border:1px solid var(--line);border-radius:16px;
-  margin-bottom:20px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);
-  border-top:3px solid var(--c);scroll-margin-top:72px}
-.day header{display:grid;grid-template-columns:82px 1fr auto;gap:18px;align-items:center;
+.day{background:var(--card);border:1px solid var(--line);border-radius:16px;margin-bottom:20px;
+  overflow:hidden;border-top:3px solid var(--c);scroll-margin-top:72px}
+.day header{display:grid;grid-template-columns:90px 1fr auto;gap:18px;align-items:center;
   padding:20px 24px;border-bottom:1px solid var(--line);background:#fdfcfa}
 .dnum{font-size:10.5px;letter-spacing:.18em;color:var(--ink3);line-height:1.2}
 .dnum b{display:block;font-size:34px;color:var(--c);letter-spacing:-1px;line-height:1}
-.dhead h3{margin:0;font-size:20px;letter-spacing:-.2px}
+.dnum em{font-style:normal;font-size:12px;color:var(--ink2)}
+.dhead h3{margin:0;font-size:20px}
 .dhead p{margin:3px 0 0;color:var(--ink2);font-size:14px}
 .dmeta{display:flex;gap:22px;text-align:right}
 .dmeta span{font-size:15px;font-weight:700;white-space:nowrap}
-.dmeta i{display:block;font-style:normal;font-size:11px;font-weight:400;
-  color:var(--ink3);letter-spacing:.1em}
+.dmeta i{display:block;font-style:normal;font-size:11px;font-weight:400;color:var(--ink3)}
 .dbody{display:grid;grid-template-columns:1fr 400px;gap:26px;padding:22px 24px 24px}
 .spots{list-style:none;margin:0;padding:0}
 .spots li{padding:10px 0 10px 20px;border-bottom:1px dashed var(--line);position:relative}
@@ -101,20 +87,17 @@ h2 em{font-style:normal;color:var(--ink3);font-size:14px;font-weight:400;
 .phs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
 .ph{margin:0;border-radius:10px;overflow:hidden;background:#f0ede6;position:relative}
 .ph img{width:100%;height:132px;object-fit:cover;display:block}
-.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 9px 6px;
-  color:#fff;font-size:12px;font-weight:600;
-  background:linear-gradient(transparent,rgba(0,0,0,.62))}
+.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 9px 6px;color:#fff;
+  font-size:12px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.62))}
 .ph.noimg{height:132px;display:flex;align-items:center;justify-content:center;
   background:linear-gradient(145deg,#eceadf,#dfe4d3)}
-.ph.noimg figcaption{position:static;background:none;color:var(--ink2);
-  text-align:center;font-size:13px;padding:0}
-.eat,.tip{margin:0 0 10px;font-size:14px;color:var(--ink2);
+.ph.noimg figcaption{position:static;background:none;color:var(--ink2);text-align:center;font-size:13px;padding:0}
+.hotel,.eat,.tip{margin:0 0 10px;font-size:14px;color:var(--ink2);
   background:#f7f5ef;border-radius:9px;padding:11px 13px}
-.tip{background:#f0f6ef;color:#2b4a2f}
-.eat b,.tip b{display:inline-block;margin-right:8px;color:var(--ink);font-size:12.5px;
+.hotel{background:#f0fdf4;color:#14532d}
+.tip{background:#f7f5ef}
+.hotel b,.eat b,.tip b{display:inline-block;margin-right:8px;color:var(--ink);font-size:12.5px;
   background:#fff;border-radius:5px;padding:1px 7px}
-
-/* 表格 */
 table{width:100%;border-collapse:collapse;background:var(--card);
   border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:14.5px}
 th,td{padding:13px 15px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
@@ -122,37 +105,31 @@ th{background:#f4f1ea;font-size:12.5px;letter-spacing:.08em;color:var(--ink2);fo
 tr:last-child td{border-bottom:0}
 td b{color:var(--green)}
 .hint{font-size:13px;color:var(--ink3);margin-top:12px}
-
-/* 注意事项 */
 .notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
 .note{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
 .note h4{margin:0 0 7px;font-size:15.5px}
 .note h4::before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;
   background:var(--gold);margin-right:9px;vertical-align:middle}
 .note p{margin:0;font-size:14px;color:var(--ink2)}
-
-footer{margin-top:56px;padding:26px 0 44px;border-top:1px solid var(--line);
-  color:var(--ink3);font-size:13px}
-
+footer{margin-top:56px;padding:26px 0 44px;border-top:1px solid var(--line);color:var(--ink3);font-size:13px}
 @media(max-width:900px){
-  .hero h1{font-size:31px}
+  .hero h1{font-size:28px}
   .maprow,.dbody{grid-template-columns:1fr}
-  .day header{grid-template-columns:60px 1fr;gap:12px}
+  .day header{grid-template-columns:70px 1fr;gap:12px}
   .dmeta{grid-column:1/-1;text-align:left;justify-content:flex-start}
 }
 </style>
 </head>
 <body>
-
 <div class="hero"><div class="wrap">
-  <p class="kicker">SELF-DRIVE · EV · 2026 SUMMER</p>
-  <h1>北京 → 阿尔山 8 日电车自驾
-    <small>去程走东线看王府与草原过渡带，回程绕西线穿锡林郭勒，全程闭环不走回头路</small></h1>
+  <p class="kicker">FRIEND'S ROUTE · 2026.8.9–8.16</p>
+  <h1>北京 → 阿尔山 8 日自驾
+    <small>完全按朋友线路：正蓝旗 · 99 号公路 · 乌拉盖 · 阿尔山 · 扎鲁特 · 玉龙沙湖回京</small></h1>
   <div class="stats">
-    <div><b>8</b><span>天 · 7 晚</span></div>
-    <div><b>2,590</b><span>公里总里程</span></div>
-    <div><b>400</b><span>km 续航 · 已排充电点</span></div>
-    <div><b>2</b><span>晚留给阿尔山</span></div>
+    <div><b>8.9–8.16</b><span>日期</span></div>
+    <div><b>2,671</b><span>公里总里程</span></div>
+    <div><b>2</b><span>晚阿尔山</span></div>
+    <div><b>快捷</b><span>干净整洁即可</span></div>
     <div><b>0</b><span>段回头路</span></div>
   </div>
 </div></div>
@@ -160,124 +137,125 @@ footer{margin-top:56px;padding:26px 0 44px;border-top:1px solid var(--line);
 <nav><div class="wrap">
   <a href="#map">路线地图</a>
   <a href="#days">每日行程</a>
-  <a href="#hotel">住宿安排</a>
-  <a href="#charge">充电计划</a>
-  <a href="#notes">出发前必读</a>
+  <a href="#hotel">住宿</a>
+  <a href="#notes">备注</a>
 </div></nav>
 
 <section id="map"><div class="wrap">
   <h2>路线地图 <em>Route</em></h2>
-  <p class="lead">按真实经纬度投影绘制。去程用暖色（D1–D4）从北京向东北插到大兴安岭，
-     回程用冷色（D6–D8）向西南穿过锡林郭勒草原下坝回京，两条线不重叠。
-     点右侧任意一天，地图只留那一段。</p>
+  <p class="lead">去程向西北进锡林郭勒（元上都 → 99 公路 → 乌拉盖），再北上阿尔山；
+     回程折向扎鲁特、翁牛特（玉龙沙湖）回京。点右侧任意一天，地图只留那一段。</p>
   <div class="maprow">
-    <div class="mapbox"><svg id="routemap" viewBox="0 0 679 894" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="北京到阿尔山8日自驾路线图"><line class="grid" x1="105.1" y1="46" x2="105.1" y2="847.9"/><text class="gridlab" x="105.1" y="863.9" text-anchor="middle">116°E</text><line class="grid" x1="174.2" y1="46" x2="174.2" y2="847.9"/><text class="gridlab" x="174.2" y="863.9" text-anchor="middle">117°E</text><line class="grid" x1="243.2" y1="46" x2="243.2" y2="847.9"/><text class="gridlab" x="243.2" y="863.9" text-anchor="middle">118°E</text><line class="grid" x1="312.3" y1="46" x2="312.3" y2="847.9"/><text class="gridlab" x="312.3" y="863.9" text-anchor="middle">119°E</text><line class="grid" x1="381.4" y1="46" x2="381.4" y2="847.9"/><text class="gridlab" x="381.4" y="863.9" text-anchor="middle">120°E</text><line class="grid" x1="450.4" y1="46" x2="450.4" y2="847.9"/><text class="gridlab" x="450.4" y="863.9" text-anchor="middle">121°E</text><line class="grid" x1="519.5" y1="46" x2="519.5" y2="847.9"/><text class="gridlab" x="519.5" y="863.9" text-anchor="middle">122°E</text><line class="grid" x1="74" y1="795.4" x2="571.3" y2="795.4"/><text class="gridlab" x="66.0" y="799.4" text-anchor="end">40°N</text><line class="grid" x1="74" y1="699.9" x2="571.3" y2="699.9"/><text class="gridlab" x="66.0" y="703.9" text-anchor="end">41°N</text><line class="grid" x1="74" y1="604.4" x2="571.3" y2="604.4"/><text class="gridlab" x="66.0" y="608.4" text-anchor="end">42°N</text><line class="grid" x1="74" y1="509.0" x2="571.3" y2="509.0"/><text class="gridlab" x="66.0" y="513.0" text-anchor="end">43°N</text><line class="grid" x1="74" y1="413.5" x2="571.3" y2="413.5"/><text class="gridlab" x="66.0" y="417.5" text-anchor="end">44°N</text><line class="grid" x1="74" y1="318.1" x2="571.3" y2="318.1"/><text class="gridlab" x="66.0" y="322.1" text-anchor="end">45°N</text><line class="grid" x1="74" y1="222.6" x2="571.3" y2="222.6"/><text class="gridlab" x="66.0" y="226.6" text-anchor="end">46°N</text><line class="grid" x1="74" y1="127.1" x2="571.3" y2="127.1"/><text class="gridlab" x="66.0" y="131.1" text-anchor="end">47°N</text><text class="region" x="174.2" y="766.7" text-anchor="middle">河 北</text><text class="region" x="450.4" y="327.6" text-anchor="middle">兴 安 盟</text><text class="region" x="194.9" y="356.2" text-anchor="middle">锡 林 郭 勒</text><text class="region" x="422.8" y="69.9" text-anchor="middle">大 兴 安 岭</text><text class="region" x="353.7" y="518.5" text-anchor="middle">赤 峰 · 通 辽</text><polyline class="halo" points="133.4,804.9 239.1,702.8"/><polyline class="halo" points="239.1,702.8 291.6,611.1 304.7,579.6"/><polyline class="halo" points="304.7,579.6 537.5,446.9 524.3,215.9"/><polyline class="halo" points="524.3,215.9 402.1,122.4 377.2,110.9"/><polyline class="halo" points="377.2,110.9 388.3,81.3 377.2,110.9"/><polyline class="halo" points="377.2,110.9 357.9,267.5 311.6,265.6"/><polyline class="halo" points="311.6,265.6 172.1,269.4 111.3,419.2 118.2,571.0 138.9,585.3"/><polyline class="halo" points="138.9,585.3 150.0,679.9 133.4,804.9"/><polyline class="leg" data-day="1" points="133.4,804.9 239.1,702.8" stroke="#c2410c"><title>D1 北京 → 承德 · 230km</title></polyline><polyline class="leg" data-day="2" points="239.1,702.8 291.6,611.1 304.7,579.6" stroke="#b45309"><title>D2 承德 → 喀喇沁 → 赤峰 · 260km</title></polyline><polyline class="leg" data-day="3" points="304.7,579.6 537.5,446.9 524.3,215.9" stroke="#a16207"><title>D3 赤峰 → 通辽 → 乌兰浩特 · 480km</title></polyline><polyline class="leg" data-day="4" points="524.3,215.9 402.1,122.4 377.2,110.9" stroke="#4d7c0f"><title>D4 乌兰浩特 → 阿尔山 · 300km</title></polyline><polyline class="leg" data-day="5" points="377.2,110.9 388.3,81.3 377.2,110.9" stroke="#15803d"><title>D5 阿尔山国家森林公园（全天） · 160km</title></polyline><polyline class="leg" data-day="6" points="377.2,110.9 357.9,267.5 311.6,265.6" stroke="#0f766e"><title>D6 阿尔山 → 霍林郭勒 → 乌拉盖 · 330km</title></polyline><polyline class="leg" data-day="7" points="311.6,265.6 172.1,269.4 111.3,419.2 118.2,571.0 138.9,585.3" stroke="#1d4ed8"><title>D7 乌拉盖 → 锡林浩特 → 元上都 → 多伦 · 480km</title></polyline><polyline class="leg" data-day="8" points="138.9,585.3 150.0,679.9 133.4,804.9" stroke="#4338ca"><title>D8 多伦 → 丰宁 → 北京 · 350km</title></polyline><circle class="dot major" cx="133.4" cy="804.9" r="6.5"/><text class="city major" x="122.4" y="809.4" text-anchor="end">北京</text><circle class="dot" cx="239.1" cy="702.8" r="4.5"/><text class="city" x="250.1" y="707.3" text-anchor="start">承德</text><circle class="dot" cx="291.6" cy="611.1" r="4.5"/><text class="city" x="280.6" y="615.6" text-anchor="end">喀喇沁</text><circle class="dot major" cx="304.7" cy="579.6" r="6.5"/><text class="city major" x="315.7" y="584.1" text-anchor="start">赤峰</text><circle class="dot" cx="537.5" cy="446.9" r="4.5"/><text class="city" x="548.5" y="451.4" text-anchor="start">通辽</text><circle class="dot major" cx="524.3" cy="215.9" r="6.5"/><text class="city major" x="535.3" y="220.4" text-anchor="start">乌兰浩特</text><circle class="dot" cx="402.1" cy="122.4" r="4.5"/><text class="city" x="402.1" y="141.4" text-anchor="middle">白狼</text><circle class="dot major" cx="377.2" cy="110.9" r="6.5"/><text class="city major" x="366.2" y="115.4" text-anchor="end">阿尔山</text><circle class="dot" cx="388.3" cy="81.3" r="4.5"/><text class="city" x="388.3" y="69.3" text-anchor="middle">天池镇</text><circle class="dot" cx="357.9" cy="267.5" r="4.5"/><text class="city" x="368.9" y="272.0" text-anchor="start">霍林郭勒</text><circle class="dot" cx="311.6" cy="265.6" r="4.5"/><text class="city" x="311.6" y="284.6" text-anchor="middle">乌拉盖</text><circle class="dot" cx="172.1" cy="269.4" r="4.5"/><text class="city" x="161.1" y="273.9" text-anchor="end">东乌旗</text><circle class="dot major" cx="111.3" cy="419.2" r="6.5"/><text class="city major" x="100.3" y="423.7" text-anchor="end">锡林浩特</text><circle class="dot" cx="118.2" cy="571.0" r="4.5"/><text class="city" x="107.2" y="575.5" text-anchor="end">元上都</text><circle class="dot" cx="138.9" cy="585.3" r="4.5"/><text class="city" x="149.9" y="589.8" text-anchor="start">多伦</text><circle class="dot" cx="150.0" cy="679.9" r="4.5"/><text class="city" x="161.0" y="684.4" text-anchor="start">丰宁</text><g class="badge" data-day="1"><circle cx="199.5" cy="767.5" r="11" fill="#c2410c"/><text x="199.5" y="771.5" text-anchor="middle">1</text></g><g class="badge" data-day="2"><circle cx="281.8" cy="666.4" r="11" fill="#b45309"/><text x="281.8" y="670.4" text-anchor="middle">2</text></g><g class="badge" data-day="3"><circle cx="430.5" cy="529.8" r="11" fill="#a16207"/><text x="430.5" y="533.8" text-anchor="middle">3</text></g><g class="badge" data-day="4"><circle cx="474.7" cy="154.1" r="11" fill="#4d7c0f"/><text x="474.7" y="158.1" text-anchor="middle">4</text></g><g class="badge" data-day="5"><circle cx="418.3" cy="93.3" r="11" fill="#15803d"/><text x="418.3" y="97.3" text-anchor="middle">5</text></g><g class="badge" data-day="6"><circle cx="386.4" cy="191.5" r="11" fill="#0f766e"/><text x="386.4" y="195.5" text-anchor="middle">6</text></g><g class="badge" data-day="7"><circle cx="124.1" cy="337.2" r="11" fill="#1d4ed8"/><text x="124.1" y="341.2" text-anchor="middle">7</text></g><g class="badge" data-day="8"><circle cx="122.9" cy="739.9" r="11" fill="#4338ca"/><text x="122.9" y="743.9" text-anchor="middle">8</text></g><text class="dirlab" x="74" y="30">去程 D1–D4 暖色　·　回程 D6–D8 冷色</text></svg></div>
-    <div class="chips"><button class="chip" data-day="1" style="--c:#c2410c"><b>D1</b><span>承德</span><em>230km</em></button><button class="chip" data-day="2" style="--c:#b45309"><b>D2</b><span>赤峰</span><em>260km</em></button><button class="chip" data-day="3" style="--c:#a16207"><b>D3</b><span>乌兰浩特</span><em>480km</em></button><button class="chip" data-day="4" style="--c:#4d7c0f"><b>D4</b><span>阿尔山</span><em>300km</em></button><button class="chip" data-day="5" style="--c:#15803d"><b>D5</b><span>阿尔山国家森林公园</span><em>160km</em></button><button class="chip" data-day="6" style="--c:#0f766e"><b>D6</b><span>乌拉盖</span><em>330km</em></button><button class="chip" data-day="7" style="--c:#1d4ed8"><b>D7</b><span>多伦</span><em>480km</em></button><button class="chip" data-day="8" style="--c:#4338ca"><b>D8</b><span>北京</span><em>350km</em></button>
+    <div class="mapbox"><svg id="routemap" viewBox="0 0 686 894" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="朋友线路阿尔山8日路线图"><line class="grid" x1="105.1" y1="46" x2="105.1" y2="847.9"/><text class="gridlab" x="105.1" y="863.9" text-anchor="middle">116°E</text><line class="grid" x1="174.2" y1="46" x2="174.2" y2="847.9"/><text class="gridlab" x="174.2" y="863.9" text-anchor="middle">117°E</text><line class="grid" x1="243.2" y1="46" x2="243.2" y2="847.9"/><text class="gridlab" x="243.2" y="863.9" text-anchor="middle">118°E</text><line class="grid" x1="312.3" y1="46" x2="312.3" y2="847.9"/><text class="gridlab" x="312.3" y="863.9" text-anchor="middle">119°E</text><line class="grid" x1="381.4" y1="46" x2="381.4" y2="847.9"/><text class="gridlab" x="381.4" y="863.9" text-anchor="middle">120°E</text><line class="grid" x1="450.4" y1="46" x2="450.4" y2="847.9"/><text class="gridlab" x="450.4" y="863.9" text-anchor="middle">121°E</text><line class="grid" x1="519.5" y1="46" x2="519.5" y2="847.9"/><text class="gridlab" x="519.5" y="863.9" text-anchor="middle">122°E</text><line class="grid" x1="74" y1="795.4" x2="578.2" y2="795.4"/><text class="gridlab" x="66.0" y="799.4" text-anchor="end">40°N</text><line class="grid" x1="74" y1="699.9" x2="578.2" y2="699.9"/><text class="gridlab" x="66.0" y="703.9" text-anchor="end">41°N</text><line class="grid" x1="74" y1="604.4" x2="578.2" y2="604.4"/><text class="gridlab" x="66.0" y="608.4" text-anchor="end">42°N</text><line class="grid" x1="74" y1="509.0" x2="578.2" y2="509.0"/><text class="gridlab" x="66.0" y="513.0" text-anchor="end">43°N</text><line class="grid" x1="74" y1="413.5" x2="578.2" y2="413.5"/><text class="gridlab" x="66.0" y="417.5" text-anchor="end">44°N</text><line class="grid" x1="74" y1="318.1" x2="578.2" y2="318.1"/><text class="gridlab" x="66.0" y="322.1" text-anchor="end">45°N</text><line class="grid" x1="74" y1="222.6" x2="578.2" y2="222.6"/><text class="gridlab" x="66.0" y="226.6" text-anchor="end">46°N</text><line class="grid" x1="74" y1="127.1" x2="578.2" y2="127.1"/><text class="gridlab" x="66.0" y="131.1" text-anchor="end">47°N</text><text class="region" x="125.8" y="699.9" text-anchor="middle">河 北</text><text class="region" x="188.0" y="432.6" text-anchor="middle">锡 林 郭 勒</text><text class="region" x="395.2" y="318.1" text-anchor="middle">通 辽 · 兴 安</text><text class="region" x="381.4" y="79.4" text-anchor="middle">大 兴 安 岭</text><text class="region" x="312.3" y="547.2" text-anchor="middle">赤 峰</text><polyline class="halo" points="133.4,804.9 150.0,679.9 105.1,581.5"/><polyline class="halo" points="105.1,581.5 216.3,357.2"/><polyline class="halo" points="216.3,357.2 311.6,265.6 357.9,267.5"/><polyline class="halo" points="357.9,267.5 377.2,110.9"/><polyline class="halo" points="377.2,110.9 388.3,81.3 377.2,110.9"/><polyline class="halo" points="377.2,110.9 444.2,360.1"/><polyline class="halo" points="444.2,360.1 537.5,446.9 313.7,515.7"/><polyline class="halo" points="313.7,515.7 304.7,579.6 150.0,679.9 133.4,804.9"/><polyline class="leg" data-day="1" points="133.4,804.9 150.0,679.9 105.1,581.5" stroke="#c2410c"><title>D1 北京 → 正蓝旗 · 453km · 8.9</title></polyline><polyline class="leg" data-day="2" points="105.1,581.5 216.3,357.2" stroke="#b45309"><title>D2 正蓝旗 → 西乌珠穆沁旗 · 302km · 8.10</title></polyline><polyline class="leg" data-day="3" points="216.3,357.2 311.6,265.6 357.9,267.5" stroke="#a16207"><title>D3 西乌旗 → 乌拉盖 → 霍林郭勒 · 227km · 8.11</title></polyline><polyline class="leg" data-day="4" points="357.9,267.5 377.2,110.9" stroke="#4d7c0f"><title>D4 霍林郭勒 → 阿尔山 · 293km · 8.12</title></polyline><polyline class="leg" data-day="5" points="377.2,110.9 388.3,81.3 377.2,110.9" stroke="#15803d"><title>D5 阿尔山国家森林公园（全天） · 160km · 8.13</title></polyline><polyline class="leg" data-day="6" points="377.2,110.9 444.2,360.1" stroke="#0f766e"><title>D6 阿尔山 → 扎鲁特 · 304km · 8.14</title></polyline><polyline class="leg" data-day="7" points="444.2,360.1 537.5,446.9 313.7,515.7" stroke="#1d4ed8"><title>D7 扎鲁特 → 翁牛特旗 · 432km · 8.15</title></polyline><polyline class="leg" data-day="8" points="313.7,515.7 304.7,579.6 150.0,679.9 133.4,804.9" stroke="#4338ca"><title>D8 翁牛特旗 → 北京 · 500km · 8.16</title></polyline><circle class="dot major" cx="133.4" cy="804.9" r="6.5"/><text class="city major" x="122.4" y="809.4" text-anchor="end">北京</text><circle class="dot" cx="150.0" cy="679.9" r="4.5"/><text class="city" x="161.0" y="684.4" text-anchor="start">丰宁</text><circle class="dot major" cx="105.1" cy="581.5" r="6.5"/><text class="city major" x="94.1" y="586.0" text-anchor="end">正蓝旗</text><circle class="dot major" cx="216.3" cy="357.2" r="6.5"/><text class="city major" x="205.3" y="361.7" text-anchor="end">西乌旗</text><circle class="dot" cx="311.6" cy="265.6" r="4.5"/><text class="city" x="311.6" y="284.6" text-anchor="middle">乌拉盖</text><circle class="dot major" cx="357.9" cy="267.5" r="6.5"/><text class="city major" x="368.9" y="272.0" text-anchor="start">霍林郭勒</text><circle class="dot major" cx="377.2" cy="110.9" r="6.5"/><text class="city major" x="366.2" y="115.4" text-anchor="end">阿尔山</text><circle class="dot" cx="388.3" cy="81.3" r="4.5"/><text class="city" x="388.3" y="69.3" text-anchor="middle">天池镇</text><circle class="dot" cx="444.2" cy="360.1" r="4.5"/><text class="city" x="455.2" y="364.6" text-anchor="start">扎鲁特</text><circle class="dot" cx="537.5" cy="446.9" r="4.5"/><text class="city" x="548.5" y="451.4" text-anchor="start">通辽</text><circle class="dot major" cx="313.7" cy="515.7" r="6.5"/><text class="city major" x="324.7" y="520.2" text-anchor="start">翁牛特</text><circle class="dot" cx="304.7" cy="579.6" r="4.5"/><text class="city" x="304.7" y="598.6" text-anchor="middle">赤峰</text><g class="badge" data-day="1"><circle cx="122.9" cy="739.9" r="11" fill="#c2410c"/><text x="122.9" y="743.9" text-anchor="middle">1</text></g><g class="badge" data-day="2"><circle cx="143.7" cy="460.9" r="11" fill="#b45309"/><text x="143.7" y="464.9" text-anchor="middle">2</text></g><g class="badge" data-day="3"><circle cx="250.8" cy="297.7" r="11" fill="#a16207"/><text x="250.8" y="301.7" text-anchor="middle">3</text></g><g class="badge" data-day="4"><circle cx="386.4" cy="191.5" r="11" fill="#4d7c0f"/><text x="386.4" y="195.5" text-anchor="middle">4</text></g><g class="badge" data-day="5"><circle cx="416.3" cy="95.3" r="11" fill="#15803d"/><text x="416.3" y="99.3" text-anchor="middle">5</text></g><g class="badge" data-day="6"><circle cx="429.0" cy="230.6" r="11" fill="#0f766e"/><text x="429.0" y="234.6" text-anchor="middle">6</text></g><g class="badge" data-day="7"><circle cx="431.2" cy="499.5" r="11" fill="#1d4ed8"/><text x="431.2" y="503.5" text-anchor="middle">7</text></g><g class="badge" data-day="8"><circle cx="237.7" cy="645.7" r="11" fill="#4338ca"/><text x="237.7" y="649.7" text-anchor="middle">8</text></g><text class="dirlab" x="74" y="30">去程 D1–D4 暖色　·　回程 D6–D8 冷色　·　朋友线路</text></svg></div>
+    <div class="chips"><button class="chip" data-day="1" style="--c:#c2410c"><b>D1</b><span>8.9 · 正蓝旗</span><em>453km</em></button><button class="chip" data-day="2" style="--c:#b45309"><b>D2</b><span>8.10 · 西乌珠穆沁旗</span><em>302km</em></button><button class="chip" data-day="3" style="--c:#a16207"><b>D3</b><span>8.11 · 霍林郭勒</span><em>227km</em></button><button class="chip" data-day="4" style="--c:#4d7c0f"><b>D4</b><span>8.12 · 阿尔山</span><em>293km</em></button><button class="chip" data-day="5" style="--c:#15803d"><b>D5</b><span>8.13 · 阿尔山国家森林公园</span><em>160km</em></button><button class="chip" data-day="6" style="--c:#0f766e"><b>D6</b><span>8.14 · 扎鲁特</span><em>304km</em></button><button class="chip" data-day="7" style="--c:#1d4ed8"><b>D7</b><span>8.15 · 翁牛特旗</span><em>432km</em></button><button class="chip" data-day="8" style="--c:#4338ca"><b>D8</b><span>8.16 · 北京</span><em>500km</em></button>
       <button class="chip" data-day="0" style="--c:#78716c">
-        <b>全</b><span>显示完整环线</span><em>2590km</em></button>
+        <b>全</b><span>显示完整环线</span><em>2671km</em></button>
     </div>
   </div>
 </div></section>
 
 <section id="days"><div class="wrap">
   <h2>每日行程 <em>Day by day</em></h2>
-  <p class="lead">单日里程控制在 480km 以内，只有 D3 和 D7 两天需要中途快充一次；
-     阿尔山排了整整两晚，不用当天进当天出。</p>
+  <p class="lead">玩点、停靠、住宿都按朋友原表整理，方便直接对照出行。</p>
   
 <article class="day" id="d1" data-day="1" style="--c:#c2410c">
   <header>
-    <div class="dnum">DAY<b>1</b></div>
+    <div class="dnum">DAY<b>1</b><em>8.9</em></div>
     <div class="dhead">
-      <h3>北京 → 承德</h3>
-      <p>出京第一站，避暑山庄先降速</p>
+      <h3>北京 → 正蓝旗</h3>
+      <p>出京直奔元上都，一天把草原门户踩实</p>
     </div>
     <div class="dmeta">
-      <span><i>里程</i>230 km</span>
-      <span><i>车程</i>2.5h</span>
-      <span><i>住</i>承德</span>
+      <span><i>里程</i>453 km</span>
+      <span><i>车程</i>约 6h</span>
+      <span><i>住</i>桑根达莱镇</span>
     </div>
   </header>
   <div class="dbody">
-    <ul class="spots"><li><b>避暑山庄</b><span>清代皇家夏宫，湖区+平原区走一圈约 3 小时，绿荫多、暴晒少</span></li><li><b>普陀宗乘之庙</b><span>俗称小布达拉宫，外八庙里体量最大的一座，拍照最出片</span></li><li><b>普宁寺</b><span>千手千眼观音木雕高 22 米，看一眼就够震撼</span></li></ul>
+    <ul class="spots"><li><b>元上都遗址</b><span>世界文化遗产，忽必烈夏都。建议下午到，光线斜时城垣最出片</span></li><li><b>上都湖</b><span>遗址附近开阔水面，傍晚走走，给长途车程收个尾</span></li><li><b>桑根达莱镇</b><span>正蓝旗交通枢纽，今晚落脚，明天进 99 号公路</span></li></ul>
     <div class="dside">
-      <div class="phs"><figure class="ph"><img src="img/chengde-xiaojinshan.jpg" alt="避暑山庄 小金山" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>避暑山庄 小金山</figcaption></figure><figure class="ph"><img src="img/putuo-zongcheng.jpg" alt="普陀宗乘之庙" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>普陀宗乘之庙</figcaption></figure><figure class="ph"><img src="img/chengde-resort-gate.jpg" alt="避暑山庄 宫门" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>避暑山庄 宫门</figcaption></figure></div>
-      <p class="eat"><b>吃</b>承德菜偏北方口味，晚上去二仙居商圈吃烧饼、碗坨、驴打滚</p>
-      <p class="tip"><b>提示</b>今天故意排得轻。上午 9 点出发避开京承高速早高峰，中午到承德吃完饭再逛山庄。</p>
+      <div class="phs"><figure class="ph"><img src="img/shangdu-ruins.jpg" alt="元上都遗址" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>元上都遗址</figcaption></figure><figure class="ph"><img src="img/shangdu-panorama.jpg" alt="元上都 城垣" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>元上都 城垣</figcaption></figure></div>
+      <p class="hotel"><b>住</b>禧华轩（朋友原订）</p>
+      <p class="eat"><b>吃</b>镇上蒙餐：手把肉、奶茶、烤羊排</p>
+      <p class="tip"><b>提示</b>当天车程偏长，早上早点出发；元上都留足 1.5–2 小时，别拖到天黑再赶路。</p>
     </div>
   </div>
 </article>
 <article class="day" id="d2" data-day="2" style="--c:#b45309">
   <header>
-    <div class="dnum">DAY<b>2</b></div>
+    <div class="dnum">DAY<b>2</b><em>8.10</em></div>
     <div class="dhead">
-      <h3>承德 → 喀喇沁 → 赤峰</h3>
-      <p>翻过燕山，第一次看到草原的边</p>
+      <h3>正蓝旗 → 西乌珠穆沁旗</h3>
+      <p>进入 99 号公路，今天是去程最出片的车窗日</p>
     </div>
     <div class="dmeta">
-      <span><i>里程</i>260 km</span>
-      <span><i>车程</i>3.5h</span>
-      <span><i>住</i>赤峰</span>
+      <span><i>里程</i>302 km</span>
+      <span><i>车程</i>约 3.5h</span>
+      <span><i>住</i>西乌旗</span>
     </div>
   </header>
   <div class="dbody">
-    <ul class="spots"><li><b>喀喇沁亲王府</b><span>内蒙古现存规模最大的清代王府，就在赤峰南 40km，几乎不绕路</span></li><li><b>赤峰博物馆</b><span>红山文化玉龙、辽代文物，一小时把这条线的历史背景补齐</span></li><li><b>红山国家森林公园</b><span>傍晚上去看赤峰全城日落，车能开到半山</span></li></ul>
+    <ul class="spots"><li><b>99 号公路</b><span>锡林郭勒经典草原公路，沿途瞭望山、白桦林观景台可停</span></li><li><b>不远牧场</b><span>适合短停拍照、接触牧区生活</span></li><li><b>蒙古汗城 / 游牧部落</b><span>沿途可选；时间紧就车览，不必全下</span></li></ul>
     <div class="dside">
-      <div class="phs"><figure class="ph"><img src="img/chifeng-hongshan.jpg" alt="赤峰 红山" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>赤峰 红山</figcaption></figure><figure class="ph"><img src="img/chifeng-museum.jpg" alt="赤峰博物馆" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>赤峰博物馆</figcaption></figure></div>
-      <p class="eat"><b>吃</b>赤峰对夹（当地版肉夹馍）+ 哈达火烧；晚上新城区烧烤、羊杂汤</p>
-      <p class="tip"><b>提示</b>从承德出发走承赤高速，路况好、车少。赤峰是这一路最后一座大城市，缺什么在这里补齐。</p>
+      <div class="phs"><figure class="ph"><img src="img/grassland-horse.jpg" alt="锡林郭勒草原" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>锡林郭勒草原</figcaption></figure><figure class="ph"><img src="img/horqin-grassland.jpg" alt="草原牧场风光" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>草原牧场风光</figcaption></figure></div>
+      <p class="hotel"><b>住</b>生态公园汉庭 / 你好酒店（朋友原订）</p>
+      <p class="eat"><b>吃</b>西乌旗羊肉出名，晚上安排一顿手把肉</p>
+      <p class="tip"><b>提示</b>公路本身就是风景，留几个固定观景台就够，别每个路口都停。</p>
     </div>
   </div>
 </article>
 <article class="day" id="d3" data-day="3" style="--c:#a16207">
   <header>
-    <div class="dnum">DAY<b>3</b></div>
+    <div class="dnum">DAY<b>3</b><em>8.11</em></div>
     <div class="dhead">
-      <h3>赤峰 → 通辽 → 乌兰浩特</h3>
-      <p>全程最长的一天，纯赶路+补电</p>
+      <h3>西乌旗 → 乌拉盖 → 霍林郭勒</h3>
+      <p>白天玩乌拉盖，晚上按朋友安排住霍林郭勒</p>
     </div>
     <div class="dmeta">
-      <span><i>里程</i>480 km</span>
-      <span><i>车程</i>5.5h</span>
-      <span><i>住</i>乌兰浩特</span>
+      <span><i>里程</i>227 km</span>
+      <span><i>车程</i>约 2.5h + 玩</span>
+      <span><i>住</i>霍林郭勒</span>
     </div>
   </header>
   <div class="dbody">
-    <ul class="spots"><li><b>孝庄园文化旅游区</b><span>通辽科左中旗，孝庄文皇后出生地，可停 1.5 小时</span></li><li><b>科尔沁草原过渡带</b><span>赤通高速两侧从农田慢慢变成草场，是很好的车窗风景</span></li><li><b>乌兰浩特夜市</b><span>兴安盟首府，晚上锅茶、烤羊排、血肠</span></li></ul>
+    <ul class="spots"><li><b>乌拉盖湖环湖</b><span>水面开阔，适合慢开一圈</span></li><li><b>九曲湾日落</b><span>导航「成功家庭牧场」可自驾上山顶观景（约 100 元，以现场为准）</span></li><li><b>狼图腾影视基地</b><span>时间富余可顺路</span></li></ul>
     <div class="dside">
-      <div class="phs"><figure class="ph"><img src="img/horqin-grassland.jpg" alt="科尔沁 珠日河牧场" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>科尔沁 珠日河牧场</figcaption></figure><figure class="ph"><img src="img/tongliao.jpg" alt="通辽站" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>通辽站</figcaption></figure><figure class="ph"><img src="img/ulanhot.jpg" alt="乌兰浩特市区" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>乌兰浩特市区</figcaption></figure></div>
-      <p class="eat"><b>吃</b>通辽牛肉出名，午餐吃一顿手把肉或牛肉面；晚上到乌兰浩特吃蒙餐</p>
-      <p class="tip"><b>提示</b>今天是 8 天里唯一需要中途快充的长途日。建议 7:30 出发，通辽午餐时顺便补电 40 分钟。</p>
+      <div class="phs"><figure class="ph"><img src="img/nuogan-lake.jpg" alt="乌拉盖一带湖景" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>乌拉盖一带湖景</figcaption></figure><figure class="ph"><img src="img/grassland-horse.jpg" alt="草原日落氛围" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>草原日落氛围</figcaption></figure></div>
+      <p class="hotel"><b>住</b>金藏高尧乌拉蒙古包（6 人包，朋友原订）</p>
+      <p class="eat"><b>吃</b>乌拉盖或霍林郭勒安排烤全羊 / 手把肉</p>
+      <p class="tip"><b>提示</b>九曲湾尽量卡住日落前后；看完再回霍林郭勒住，别反过来。</p>
     </div>
   </div>
 </article>
 <article class="day" id="d4" data-day="4" style="--c:#4d7c0f">
   <header>
-    <div class="dnum">DAY<b>4</b></div>
+    <div class="dnum">DAY<b>4</b><em>8.12</em></div>
     <div class="dhead">
-      <h3>乌兰浩特 → 阿尔山</h3>
-      <p>进大兴安岭，空调可以关了</p>
+      <h3>霍林郭勒 → 阿尔山</h3>
+      <p>出草原进大兴安岭，今晚住进阿尔山</p>
     </div>
     <div class="dmeta">
-      <span><i>里程</i>300 km</span>
-      <span><i>车程</i>4h</span>
+      <span><i>里程</i>293 km</span>
+      <span><i>车程</i>约 4.5h</span>
       <span><i>住</i>阿尔山</span>
     </div>
   </header>
   <div class="dbody">
-    <ul class="spots"><li><b>成吉思汗庙</b><span>乌兰浩特市区，全国唯一祭祀成吉思汗的庙宇，上午 1 小时</span></li><li><b>洮儿河谷 / 五岔沟</b><span>S203 一路沿河，白桦林和落叶松开始成片</span></li><li><b>白狼峰 / 鹿园</b><span>阿尔山前 40km，可以看到大兴安岭主脊，孩子喜欢喂鹿</span></li><li><b>阿尔山火车站</b><span>1937 年的日式木刻楞小站，傍晚灯亮起来非常上镜</span></li></ul>
+    <ul class="spots"><li><b>沿途草原→森林过渡</b><span>车窗外从草场慢慢变成落叶松和白桦</span></li><li><b>阿尔山市街景</b><span>哈拉哈河穿城，傍晚沿河散步即可</span></li><li><b>阿尔山火车站</b><span>1937 年日式木刻楞小站，灯亮后很好拍</span></li></ul>
     <div class="dside">
-      <div class="phs"><figure class="ph"><img src="img/taoer-river.jpg" alt="洮儿河谷" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>洮儿河谷</figcaption></figure><figure class="ph"><img src="img/s202-road.jpg" alt="S202 进山沿途" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>S202 进山沿途</figcaption></figure><figure class="ph"><img src="img/arxan-station.jpg" alt="阿尔山火车站" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>阿尔山火车站</figcaption></figure></div>
-      <p class="eat"><b>吃</b>阿尔山吃山货：榛蘑小鸡、蕨菜、柳蒿芽、冷水鱼</p>
-      <p class="tip"><b>提示</b>海拔从 300m 升到 1000m+，8 月这里白天 22℃、夜里能到 8℃，抓绒外套今晚就要拿出来。</p>
+      <div class="phs"><figure class="ph"><img src="img/arxan-town.jpg" alt="阿尔山市区与河流" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>阿尔山市区与河流</figcaption></figure><figure class="ph"><img src="img/arxan-station.jpg" alt="阿尔山火车站" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>阿尔山火车站</figcaption></figure><figure class="ph"><img src="img/s202-road.jpg" alt="进山沿途" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>进山沿途</figcaption></figure></div>
+      <p class="hotel"><b>住</b>阿尔山聚优阁酒店（朋友原订，也可换市内同级干净快捷）</p>
+      <p class="eat"><b>吃</b>山货：榛蘑小鸡、蕨菜、柳蒿芽、冷水鱼</p>
+      <p class="tip"><b>提示</b>8 月阿尔山夜里凉，薄外套备一件。明天全天进公园，早点睡。</p>
     </div>
   </div>
 </article>
 <article class="day" id="d5" data-day="5" style="--c:#15803d">
   <header>
-    <div class="dnum">DAY<b>5</b></div>
+    <div class="dnum">DAY<b>5</b><em>8.13</em></div>
     <div class="dhead">
       <h3>阿尔山国家森林公园（全天）</h3>
-      <p>这趟的正题，一整天给森林公园</p>
+      <p>正题日：天池、三潭峡、石塘林一次走完</p>
     </div>
     <div class="dmeta">
       <span><i>里程</i>160 km</span>
@@ -286,118 +264,106 @@ footer{margin-top:56px;padding:26px 0 44px;border-top:1px solid var(--line);
     </div>
   </header>
   <div class="dbody">
-    <ul class="spots"><li><b>驼峰岭天池</b><span>全园最精华，火山口湖形似左脚印，登顶约 30 分钟台阶</span></li><li><b>阿尔山天池</b><span>海拔 1332m，中国第三高火山湖，无进无出水位常年不变</span></li><li><b>杜鹃湖</b><span>湖岸栈道平缓，是园内最适合慢走的一段</span></li><li><b>三潭峡 / 石塘林</b><span>哈拉哈河切出的峡谷 + 万年火山熔岩台地，地貌反差极大</span></li><li><b>大峡谷 / 龟背岩</b><span>熔岩龟背状节理，中国罕见的地质现象</span></li></ul>
+    <ul class="spots"><li><b>驼峰岭天池 / 阿尔山天池</b><span>火山口湖，全园精华</span></li><li><b>三潭峡</b><span>哈拉哈河切开的峡谷，栈道好走</span></li><li><b>石塘林</b><span>万年火山熔岩台地，和峡谷反差大</span></li><li><b>杜鹃湖</b><span>湖岸平缓，适合慢走</span></li></ul>
     <div class="dside">
       <div class="phs"><figure class="ph"><img src="img/arxan-tianchi.jpg" alt="阿尔山天池" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>阿尔山天池</figcaption></figure><figure class="ph"><img src="img/dujuan-lake.jpg" alt="杜鹃湖" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>杜鹃湖</figcaption></figure><figure class="ph"><img src="img/santanxia.jpg" alt="三潭峡" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>三潭峡</figcaption></figure><figure class="ph"><img src="img/larch-forest.jpg" alt="兴安落叶松林" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>兴安落叶松林</figcaption></figure></div>
-      <p class="eat"><b>吃</b>园内餐饮少且贵，早上让酒店备干粮，中午在天池镇解决</p>
-      <p class="tip"><b>提示</b>景区南北长约 100km，园内自驾需按当日政策办通行/换乘。全天不下车充电，早上务必满电出发。</p>
+      <p class="hotel"><b>住</b>继续住聚优阁 / 市内同级快捷（连住）</p>
+      <p class="eat"><b>吃</b>园内餐饮贵且少，酒店备干粮；中午可在天池镇简单解决</p>
+      <p class="tip"><b>提示</b>门票+园内交通提前在小程序预约。景区南北长，按园内推荐顺序走，别来回跑。</p>
     </div>
   </div>
 </article>
 <article class="day" id="d6" data-day="6" style="--c:#0f766e">
   <header>
-    <div class="dnum">DAY<b>6</b></div>
+    <div class="dnum">DAY<b>6</b><em>8.14</em></div>
     <div class="dhead">
-      <h3>阿尔山 → 霍林郭勒 → 乌拉盖</h3>
-      <p>出森林进草原，回程正式开始（不走回头路）</p>
+      <h3>阿尔山 → 扎鲁特</h3>
+      <p>回程开始，不走回头路，折向科尔沁北缘</p>
     </div>
     <div class="dmeta">
-      <span><i>里程</i>330 km</span>
-      <span><i>车程</i>4.5h</span>
-      <span><i>住</i>乌拉盖</span>
+      <span><i>里程</i>304 km</span>
+      <span><i>车程</i>约 4.5h</span>
+      <span><i>住</i>扎鲁特</span>
     </div>
   </header>
   <div class="dbody">
-    <ul class="spots"><li><b>不冻河</b><span>哈拉哈河一段严冬也不结冰，清晨雾气最好看，出城顺路</span></li><li><b>玫瑰峰</b><span>阿尔山北 30km 的花岗岩石林，可选，加 1.5 小时</span></li><li><b>乌拉盖九曲湾</b><span>被叫做“天下第一曲水”，傍晚站在观景台看日落</span></li><li><b>狼图腾影视基地</b><span>电影拍摄地保留了知青点和蒙古包群</span></li></ul>
+    <ul class="spots"><li><b>沿途草原民俗风光</b><span>出阿尔山后路况开阔，适合分段停车拍照</span></li><li><b>可汗山 · 云上草原</b><span>云海天好时值得上一趟</span></li><li><b>扎鲁特旗城区</b><span>今晚过渡落脚</span></li></ul>
     <div class="dside">
-      <div class="phs"><figure class="ph"><img src="img/arxan-town.jpg" alt="哈拉哈河穿城而过" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>哈拉哈河穿城而过</figcaption></figure><figure class="ph"><img src="img/nuogan-lake.jpg" alt="诺干湖" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>诺干湖</figcaption></figure><figure class="ph"><img src="img/grassland-horse.jpg" alt="锡林郭勒草原 套马" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>锡林郭勒草原 套马</figcaption></figure></div>
-      <p class="eat"><b>吃</b>乌拉盖草原羊肉是公认的好，晚上安排一顿烤全羊或手把肉</p>
-      <p class="tip"><b>提示</b>从霍林郭勒开始进入真正的草原区，充电桩明显变稀。霍林郭勒必须补满再走。</p>
+      <div class="phs"><figure class="ph"><img src="img/arxan.jpg" alt="阿尔山远景" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>阿尔山远景</figcaption></figure><figure class="ph"><img src="img/horqin-grassland.jpg" alt="科尔沁北缘草原" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>科尔沁北缘草原</figcaption></figure></div>
+      <p class="hotel"><b>住</b>扎鲁特城区汉庭 / 同级干净快捷</p>
+      <p class="eat"><b>吃</b>扎鲁特吃蒙餐、炖菜，吃稳一点</p>
+      <p class="tip"><b>提示</b>可汗山看得爽就行，别太晚下山；扎鲁特只是过渡夜。</p>
     </div>
   </div>
 </article>
 <article class="day" id="d7" data-day="7" style="--c:#1d4ed8">
   <header>
-    <div class="dnum">DAY<b>7</b></div>
+    <div class="dnum">DAY<b>7</b><em>8.15</em></div>
     <div class="dhead">
-      <h3>乌拉盖 → 锡林浩特 → 元上都 → 多伦</h3>
-      <p>穿越锡林郭勒，一天看完草原+火山+元朝都城</p>
+      <h3>扎鲁特 → 翁牛特旗</h3>
+      <p>回程玩点日：玉龙沙湖 + 响水荷花池</p>
     </div>
     <div class="dmeta">
-      <span><i>里程</i>480 km</span>
-      <span><i>车程</i>6h</span>
-      <span><i>住</i>多伦</span>
+      <span><i>里程</i>432 km</span>
+      <span><i>车程</i>约 5.5h</span>
+      <span><i>住</i>翁牛特旗</span>
     </div>
   </header>
   <div class="dbody">
-    <ul class="spots"><li><b>贝子庙</b><span>锡林浩特市区，内蒙古四大藏传佛教寺庙之一</span></li><li><b>平顶山火山地质公园</b><span>锡林浩特西南，一排削平的火山锥，被称为“九曲湾旁的桌山”</span></li><li><b>元上都遗址</b><span>世界文化遗产，忽必烈的夏都，草原上一圈土城墙气场很足</span></li><li><b>浑善达克沙地</b><span>沙地与草原交错，S105 沿线路景非常特别</span></li></ul>
+    <ul class="spots"><li><b>玉龙沙湖</b><span>可骑骆驼，沙湖同框，和前面草原反差大</span></li><li><b>响水荷花池</b><span>8 月若赶上花期很出片</span></li><li><b>翁牛特旗落脚</b><span>回京前最后一晚</span></li></ul>
     <div class="dside">
-      <div class="phs"><figure class="ph"><img src="img/shangdu-ruins.jpg" alt="元上都遗址" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>元上都遗址</figcaption></figure><figure class="ph"><img src="img/shangdu-panorama.jpg" alt="元上都 城垣遗迹" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>元上都 城垣遗迹</figcaption></figure></div>
-      <p class="eat"><b>吃</b>锡林浩特午餐奶茶+羊肉包子；晚上多伦吃冷水鱼</p>
-      <p class="tip"><b>提示</b>今天路长但都是好路。锡林浩特是回程最后一座补电方便的城市，走之前充满。</p>
+      <div class="phs"><figure class="ph"><img src="img/chifeng-hongshan.jpg" alt="赤峰一带地貌" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>赤峰一带地貌</figcaption></figure><figure class="ph"><img src="img/chifeng-museum.jpg" alt="赤峰文化背景" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>赤峰文化背景</figcaption></figure></div>
+      <p class="hotel"><b>住</b>汉庭赤峰翁牛特旗人民政府店（朋友原订）</p>
+      <p class="eat"><b>吃</b>沙湖景区餐饮一般，建议回旗里再吃晚饭</p>
+      <p class="tip"><b>提示</b>当天里程不短，沙湖和响水二选一深玩也可以，别两头都赶尽杀绝。</p>
     </div>
   </div>
 </article>
 <article class="day" id="d8" data-day="8" style="--c:#4338ca">
   <header>
-    <div class="dnum">DAY<b>8</b></div>
+    <div class="dnum">DAY<b>8</b><em>8.16</em></div>
     <div class="dhead">
-      <h3>多伦 → 丰宁 → 北京</h3>
-      <p>沿坝上下山回京</p>
+      <h3>翁牛特旗 → 北京</h3>
+      <p>最长回程日，尽量下午赶在晚高峰前进城</p>
     </div>
     <div class="dmeta">
-      <span><i>里程</i>350 km</span>
-      <span><i>车程</i>4.5h</span>
+      <span><i>里程</i>500 km</span>
+      <span><i>车程</i>约 6h</span>
       <span><i>住</i>到家</span>
     </div>
   </header>
   <div class="dbody">
-    <ul class="spots"><li><b>多伦湖</b><span>早上环湖一小段，水面开阔，适合收个尾</span></li><li><b>汇宗寺</b><span>康熙敕建的漠南第一寺，20 分钟</span></li><li><b>坝上下坡路段</b><span>从 1400m 一路降到 400m，动能回收能把电量补回来不少</span></li></ul>
+    <ul class="spots"><li><b>承赤 / 京承方向高速</b><span>按导航走主路即可</span></li><li><b>服务区休息</b><span>中途停一两次，轮换开车更稳</span></li><li><b>回京收尾</b><span>目标下午 4–5 点进五环，避开晚高峰</span></li></ul>
     <div class="dside">
+      <div class="phs"><figure class="ph"><img src="img/taoer-river.jpg" alt="北国河景收尾" loading="lazy" onerror="this.closest('.ph').classList.add('noimg');this.remove()"><figcaption>北国河景收尾</figcaption></figure></div>
       
-      <p class="eat"><b>吃</b>丰宁午餐吃农家菜；下午 4 点前进京避开晚高峰</p>
-      <p class="tip"><b>提示</b>可选加点：从多伦向东 80km 是乌兰布统草原，愿意多走 2 小时可以顺路再看一片坝上。</p>
+      <p class="eat"><b>吃</b>服务区简单吃一顿就行</p>
+      <p class="tip"><b>提示</b>纯赶路日，早出发；两人轮驾会轻松很多。</p>
     </div>
   </div>
 </article>
 </div></section>
 
 <section id="hotel"><div class="wrap">
-  <h2>住宿安排 <em>Stay</em></h2>
-  <p class="lead">原则是：城市段住当地高星连锁，草原段住带独立卫浴的高端营地或度假村，
-     阿尔山两晚直接住温泉酒店——开完森林公园回来泡一泡，第二天状态完全不一样。</p>
+  <h2>住宿 <em>Stay</em></h2>
+  <p class="lead">标准就一条：快捷、干净、整洁。酒店名按朋友原订，同城同级可替换。</p>
   <table>
-    <tr><th>夜次</th><th>城市</th><th>推荐落脚</th><th>旺季价位（元/晚）</th><th>充电条件</th></tr>
-    <tr><td><b>第 1 晚</b></td><td>承德</td><td>承德山庄宾馆 / 富龙温泉假日酒店</td><td>500–900</td><td>酒店及周边快充充足</td></tr><tr><td><b>第 2 晚</b></td><td>赤峰</td><td>新城区高星酒店（万达嘉华一类）</td><td>400–700</td><td>城区快充密集，随便选</td></tr><tr><td><b>第 3 晚</b></td><td>乌兰浩特</td><td>神骏国际酒店 / 兴安盟本地高星</td><td>400–700</td><td>国网站点，夜里慢充过夜</td></tr><tr><td><b>第 4–5 晚</b></td><td>阿尔山</td><td>海神温泉大酒店 / 圣水药泉山庄</td><td>900–1800</td><td>市区有国网快充，景区内无桩</td></tr><tr><td><b>第 6 晚</b></td><td>乌拉盖</td><td>草原高端帐篷营地 / 度假村</td><td>600–1200</td><td>桩很少，务必在霍林郭勒充满</td></tr><tr><td><b>第 7 晚</b></td><td>多伦</td><td>多伦湖畔度假酒店 / 县城高星</td><td>400–700</td><td>县城有快充</td></tr>
+    <tr><th>夜次</th><th>城市</th><th>住宿</th><th>备注</th></tr>
+    <tr><td><b>第 1 晚 8.9</b></td><td>桑根达莱镇</td><td>禧华轩</td><td>干净整洁即可</td></tr><tr><td><b>第 2 晚 8.10</b></td><td>西乌珠穆沁旗</td><td>生态公园汉庭 / 你好酒店</td><td>快捷连锁，看评分选新装修</td></tr><tr><td><b>第 3 晚 8.11</b></td><td>霍林郭勒</td><td>金藏高尧乌拉蒙古包（6 人）</td><td>体验向；若想省事可改市区汉庭一类</td></tr><tr><td><b>第 4–5 晚 8.12–13</b></td><td>阿尔山</td><td>聚优阁 / 市内同级快捷</td><td>连住两晚，干净、离吃饭方便优先</td></tr><tr><td><b>第 6 晚 8.14</b></td><td>扎鲁特旗</td><td>城区汉庭 / 同级快捷</td><td>过渡夜，不折腾</td></tr><tr><td><b>第 7 晚 8.15</b></td><td>翁牛特旗</td><td>汉庭（人民政府店）</td><td>回京前一晚，早睡早出发</td></tr>
   </table>
-  <p class="hint">酒店名称为当地知名选项，仅作方向参考，实际请以订房平台当期房态和评分为准；
-     7–8 月阿尔山房源极紧张，建议提前 30 天锁定可免费取消的房型。</p>
-</div></section>
-
-<section id="charge"><div class="wrap">
-  <h2>充电计划 <em>Charging</em></h2>
-  <p class="lead">这条线真正需要动脑子的只有两段：<b>阿尔山进出</b>和<b>乌拉盖草原段</b>。
-     其余城市段桩都够用。下面每天都按“出发满电”来排。</p>
-  <table>
-    <tr><th>日</th><th>里程</th><th>补电安排</th><th>电量判断</th><th>过夜充电</th></tr>
-    <tr><td><b>D1</b></td><td>230km</td><td>出发满电 → 直达承德</td><td>余量充足，无需中途补</td><td>承德酒店慢充过夜</td></tr><tr><td><b>D2</b></td><td>260km</td><td>承德满电 → 赤峰</td><td>到店约剩 25–35%</td><td>赤峰城区快充 40 分钟或酒店过夜</td></tr><tr><td><b>D3</b></td><td>480km</td><td>赤峰满电 → 通辽补电 → 乌兰浩特</td><td>必须补 1 次：通辽午餐时快充至 90%</td><td>乌兰浩特酒店过夜慢充</td></tr><tr><td><b>D4</b></td><td>300km</td><td>乌兰浩特满电 → 阿尔山</td><td>沿途桩少，中途尽量不依赖</td><td>阿尔山市区国网快充充满</td></tr><tr><td><b>D5</b></td><td>160km</td><td>园内往返，不出阿尔山</td><td>景区内完全无桩，早上必须满电</td><td>回市区后充满，为明天做准备</td></tr><tr><td><b>D6</b></td><td>330km</td><td>阿尔山满电 → 霍林郭勒补电 → 乌拉盖</td><td>霍林郭勒是关键节点，必须充到 90%+</td><td>乌拉盖营地慢充或不充</td></tr><tr><td><b>D7</b></td><td>480km</td><td>乌拉盖 → 东乌旗补电 → 锡林浩特快充 → 多伦</td><td>锡林浩特是回程最后一个稳妥补电城市</td><td>多伦县城充满</td></tr><tr><td><b>D8</b></td><td>350km</td><td>多伦满电 → 丰宁（可补）→ 北京</td><td>下坡路段动能回收可观</td><td>到家</td></tr>
-  </table>
-  <p class="hint">关键节点提醒：<b>通辽</b>（D3 唯一中途补电点）、<b>阿尔山市区</b>（进森林公园前最后的桩）、
-     <b>霍林郭勒</b>（进草原前最后的桩）、<b>锡林浩特</b>（回程最后一座补电方便的城市）。</p>
+  <p class="hint">旺季建议提前订可免费取消的房型；阿尔山连住两晚先锁定。</p>
 </div></section>
 
 <section id="notes"><div class="wrap">
-  <h2>出发前必读 <em>Before you go</em></h2>
-  <p class="lead">电车跑内蒙不难，难在草原段没有容错空间。下面几条是这条线上最容易吃亏的地方。</p>
+  <h2>备注 <em>Notes</em></h2>
   <div class="notes">
-    <div class="note"><h4>电量红线</h4><p>标称 400km，高速 120km/h 实际按 270–300km 算，草原国道 80–90km/h 能跑到 330–360km。规矩定死：<b>SOC 跌到 30% 就找桩，绝不低于 20% 进入草原段。</b></p></div><div class="note"><h4>导航怎么用</h4><p>高德/百度里把“充电站”筛选成国家电网、特来电、星星充电三家，小运营商在内蒙经常是坏桩。出发前一晚把第二天的补电点手动标出来，不要边开边找。</p></div><div class="note"><h4>必备装备</h4><p>220V 应急充电枪 + 转接头（草原营地大多只有民用插座）、拖车绳、胎压表和补胎液。草原砂石路段慢行，最容易出问题的是轮胎不是电池。</p></div><div class="note"><h4>温差</h4><p>8 月北京 32℃，阿尔山夜里 5–10℃。抓绒外套、长裤、薄羽绒各带一件。景区蚊虫多，防蚊液和长袖必备。</p></div><div class="note"><h4>草原路规矩</h4><p>天黑后不开草原道，牛羊上路且没有路肩；限速拍照极多，区间测速严格；乡道尽量不下主路，陷车没人拖。</p></div><div class="note"><h4>边境与证件</h4><p>乌拉盖、东乌珠穆沁一带靠近边境管理区，全车人身份证随身带，个别路段有检查站。</p></div><div class="note"><h4>门票与预约</h4><p>阿尔山国家森林公园门票 + 园内交通车需要提前在小程序预约，旺季当天买不到。避暑山庄、元上都也建议提前一天订。</p></div><div class="note"><h4>订房节奏</h4><p>7 月中到 8 月底是阿尔山最贵最紧张的时候，房价能翻一倍。建议提前 30 天订、优先选可免费取消，天气不好时好调整。</p></div>
+    <div class="note"><h4>和朋友原表的关系</h4><p>路线、日期、玩点、住宿点完全按朋友表；D2 日期原表 8.1 已改为 8.10；D6 住宿按扎鲁特写（原表酒店串到霍林郭勒已纠正）。</p></div><div class="note"><h4>住宿标准</h4><p>全程按快捷酒店思路：干净、整洁、评分别太差就行，不追求高星。唯 D3 蒙古包是体验项，想睡实也可改霍林郭勒市区快捷。</p></div><div class="note"><h4>订房节奏</h4><p>8.9–8.16 旺季，阿尔山和乌拉盖周边先锁；其余过渡城订可免费取消的即可。</p></div><div class="note"><h4>门票预约</h4><p>阿尔山国家森林公园门票+园内车提前预约；元上都、玉龙沙湖旺季也建议前一天订。</p></div><div class="note"><h4>九曲湾</h4><p>「成功家庭牧场 100 元自驾山顶」以现场开放和路况为准。</p></div><div class="note"><h4>节奏提醒</h4><p>D1、D7、D8 车程都偏长，玩点适可而止；阿尔山 D5 才是真正留给玩的一天。</p></div>
   </div>
 </div></section>
 
 <footer><div class="wrap">
-  路线总长约 2590 公里 · 8 天 7 晚 · 闭环无回头路 ·
-  地图按 WGS84 经纬度等距投影绘制，为示意图，实际请以导航软件为准 ·
-  照片来自 Wikimedia Commons，已下载至本地 <code>img/</code> 目录
+  路线按朋友《阿尔山8天自驾行程表》· 约 2671 km · 2026.8.9–8.16 ·
+  地图为经纬度投影示意图 · 照片来自 Wikimedia Commons
 </div></footer>
 
 <script>
@@ -429,8 +395,11 @@ footer{margin-top:56px;padding:26px 0 44px;border-top:1px solid var(--line);
     [].forEach.call(map.querySelectorAll('.leg'), function(el){ el.style.opacity=''; });
   });
   [].forEach.call(map.querySelectorAll('.leg'), function(el){
-    el.addEventListener('click', function(){ focus(+el.dataset.day); 
-      var t = document.getElementById('d'+el.dataset.day); if(t) t.scrollIntoView({behavior:'smooth'}); });
+    el.addEventListener('click', function(){
+      focus(+el.dataset.day);
+      var t = document.getElementById('d'+el.dataset.day);
+      if(t) t.scrollIntoView({behavior:'smooth'});
+    });
   });
 })();
 </script>
